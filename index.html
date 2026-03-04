@@ -11,14 +11,7 @@
     <link rel="stylesheet" href="style.css">
     
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <style>
-        /* Regola richiesta: i pulsanti vanno a capo */
-        button {
-            display: block;
-            margin-top: 15px;
-            width: 100%; /* Opzionale, per uniformità */
-        }
-    </style>
+
 </head>
 <body>
 
@@ -192,6 +185,32 @@
         <div id="console-output">> SPACE_MISSION 3.0: IN ATTESA DI ACCREDITAMENTO...</div>
     </main>
 
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Contatti HQ</h4>
+                <p>Centro Operativo Aerospaziale</p>
+                <p>Settore Sicurezza 3.0</p>
+                <p>Email: in fase di elaborazione...</p>
+            </div>
+            <div class="footer-col">
+                <h4>Link Rapidi</h4>
+                <p>Protocolli ONU UNOOSA</p>
+                <p>Database Detriti API(NASA)</p>
+                <p>Artemis Accords 2024</p>
+            </div>
+            <div class="footer-col">
+                <h4>Status Sistemi</h4>
+                <p>Radar Orbitale: <span style="color: green; font-weight: bold;">Online</span></p>
+                <p>Deep Space Link: <span style="color: green; font-weight: bold;">Attivo</span></p>
+                <p>Versione: 3.0.4-beta</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 SPACE_MISSION: security 3.0. Tutti i diritti riservati. Protocollo di Difesa Civile Extra-Planetaria.
+        </div>
+    </footer>
+
     <script>
         (function() { emailjs.init("uKKA_CdLIyWl4yQoS"); })();
 
@@ -299,7 +318,6 @@
             }
         }
 
-        // --- FUNZIONE DART AGGIORNATA CON PARAMETRI FISICI ---
         function sendDart() {
             if (!isUnlocked) return;
             
@@ -309,35 +327,15 @@
             
             if (m_dart > 0 && d_asteroid > 0) {
                 updateConsole(`Inizializzazione simulatore fisico per ${m_dart}kg su bersaglio di ${d_asteroid}m...`);
-                
-                // 1. Calcolo Massa dell'Asteroide (Approssimato a una sfera)
                 const r = d_asteroid / 2;
                 const volume = (4/3) * Math.PI * Math.pow(r, 3);
                 const m_asteroid = volume * rho; 
-                
-                // 2. Parametri di impatto
-                const v_dart = 6600; // 6.6 km/s in m/s
-                const beta = 2.4; // Fattore di esaltazione missione DART
-                
-                // 3. Calcolo variazione velocità (Delta V)
+                const v_dart = 6600; 
+                const beta = 2.4; 
                 const deltaV = (beta * m_dart * v_dart) / m_asteroid; 
-                
-                // 4. Calcolo Energia Cinetica (TJ)
                 const energia = (0.5 * m_dart * Math.pow(v_dart, 2)) / 1e12;
 
-                const analisi = `PROTOCOLLO DIFESA PLANETARIA (DART) - ANALISI FISICA
--------------------------------------------
-DATI BERSAGLIO:
-- Diametro: ${d_asteroid} m
-- Densità: ${rho} kg/m³
-- Massa Asteroide: ${m_asteroid.toExponential(2)} kg
-
-DINAMICA IMPATTO:
-- Energia sprigionata: ${energia.toFixed(2)} Terajoule
-- Variazione Velocità (Δv): ${deltaV.toFixed(8)} m/s
-- Fattore Beta (Enhancement): ${beta}
-
-RISULTATO: Traiettoria dell'asteroide alterata con successo per prevenire l'impatto.`;
+                const analisi = `PROTOCOLLO DIFESA PLANETARIA (DART) - ANALISI FISICA\n-------------------------------------------\nDATI BERSAGLIO:\n- Diametro: ${d_asteroid} m\n- Densità: ${rho} kg/m³\n- Massa Asteroide: ${m_asteroid.toExponential(2)} kg\n\nDINAMICA IMPATTO:\n- Energia sprigionata: ${energia.toFixed(2)} Terajoule\n- Variazione Velocità (Δv): ${deltaV.toFixed(8)} m/s\n- Fattore Beta (Enhancement): ${beta}\n\nRISULTATO: Traiettoria dell'asteroide alterata con successo per prevenire l'impatto.`;
 
                 sendAstroData("05-DART-DETAILED", analisi);
             } else {

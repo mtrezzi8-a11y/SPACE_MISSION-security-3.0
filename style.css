@@ -6,9 +6,14 @@
     --rosso-glow: #ff3131;
     --blu-deep: #001233;
     --blu-accento: #00a8ff;
+    --text-muted: #555;
+    --white: #ffffff;
 }
 
-* { box-sizing: border-box; transition: all 0.3s ease; }
+* { 
+    box-sizing: border-box; 
+    transition: all 0.3s ease; 
+}
 
 body {
     font-family: 'Rajdhani', sans-serif;
@@ -21,7 +26,7 @@ body {
 
 /* Navigazione Laterale */
 nav {
-    width: 15%;
+    width: 200px;
     background: var(--rosso-scuro);
     color: white;
     padding: 25px 15px;
@@ -38,6 +43,7 @@ nav h2 {
     border-bottom: 1px solid rgba(255,255,255,0.2);
     padding-bottom: 15px;
     margin-bottom: 20px;
+    letter-spacing: 1px;
 }
 
 nav ul { list-style: none; padding: 0; }
@@ -48,8 +54,9 @@ nav ul li a {
     font-weight: bold;
     cursor: pointer;
     display: block;
-    padding: 8px;
-    font-size: 0.9rem;
+    padding: 10px;
+    font-size: 0.85rem;
+    border-radius: 4px;
 }
 
 nav ul li a:hover {
@@ -60,17 +67,39 @@ nav ul li a:hover {
 
 /* Area Principale */
 main {
-    margin-left: 15%;
-    padding: 60px 8%;
-    width: 85%;
+    margin-left: 200px;
+    padding: 60px 5%;
+    width: calc(100% - 200px);
+    display: flex;
+    flex-direction: column;
 }
 
-h1 { font-family: 'Orbitron', sans-serif; color: var(--rosso-scuro); font-size: 2.8rem; margin-bottom: 10px; }
-h2 { font-family: 'Orbitron', sans-serif; color: var(--blu-deep); border-bottom: 2px solid var(--rosso-scuro); display: inline-block; margin-top: 50px; }
-h3 { color: var(--rosso-scuro); margin-top: 25px; }
+h1 { 
+    font-family: 'Orbitron', sans-serif; 
+    color: var(--rosso-scuro); 
+    font-size: 2.8rem; 
+    margin-bottom: 10px; 
+}
+
+p.subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+}
+
+h2 { 
+    font-family: 'Orbitron', sans-serif; 
+    color: var(--blu-deep); 
+    border-bottom: 2px solid var(--rosso-scuro); 
+    display: inline-block; 
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+h3 { color: var(--rosso-scuro); margin-top: 25px; font-family: 'Orbitron', sans-serif; font-size: 1.1rem; }
 
 section {
-    background: white;
+    background: var(--white);
     padding: 40px;
     border-radius: 15px;
     margin-bottom: 40px;
@@ -78,7 +107,8 @@ section {
 }
 
 .form-group { margin-bottom: 20px; }
-label { display: block; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; font-size: 0.75rem; color: #555; }
+label { display: block; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; font-size: 0.75rem; color: var(--text-muted); }
+
 input, select, textarea {
     width: 100%;
     padding: 14px;
@@ -86,6 +116,13 @@ input, select, textarea {
     border-radius: 8px;
     font-family: 'Rajdhani', sans-serif;
     font-size: 1rem;
+    background: #fafafa;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--rosso-scuro);
+    background: white;
 }
 
 button {
@@ -98,9 +135,15 @@ button {
     font-family: 'Orbitron', sans-serif;
     font-size: 0.8rem;
     letter-spacing: 1px;
+    width: 100%;
+    text-transform: uppercase;
 }
 
-button:hover { background: var(--rosso-scuro); transform: scale(1.02); }
+button:hover { 
+    background: var(--rosso-scuro); 
+    transform: scale(1.01); 
+    box-shadow: 0 5px 15px rgba(123, 0, 0, 0.3);
+}
 
 #console-output {
     background: #0d0d0d;
@@ -112,6 +155,170 @@ button:hover { background: var(--rosso-scuro); transform: scale(1.02); }
     position: sticky;
     bottom: 20px;
     box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
+    margin-top: 20px;
+    z-index: 10;
 }
 
 .doc-block p { line-height: 1.8; font-size: 1.1rem; text-align: justify; }
+
+/* --- FOOTER VISUAL STYLE --- */
+footer {
+    background: var(--blu-deep);
+    color: white;
+    margin-left: 200px;
+    padding: 60px 5% 30px;
+    width: calc(100% - 200px);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 40px;
+}
+
+.footer-col h4 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--rosso-glow);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.footer-col p, .footer-col a {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.footer-col a:hover {
+    color: white;
+}
+
+.footer-social {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-social a {
+    font-size: 1.2rem;
+    color: white;
+    opacity: 0.6;
+}
+
+.footer-social a:hover {
+    opacity: 1;
+    color: var(--rosso-glow);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.4);
+}
+
+.status-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #00ff41;
+    border-radius: 50%;
+    margin-right: 8px;
+    box-shadow: 0 0 10px #00ff41;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body { flex-direction: column; }
+    nav { width: 100%; height: auto; position: relative; }
+    main, footer { margin-left: 0; width: 100%; }
+}
+        /* Forza il body a gestire correttamente il footer in fondo */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* Il contenuto principale deve espandersi per spingere il footer giù */
+        main {
+            flex: 1;
+        }
+
+        /* Regola richiesta: i pulsanti vanno a capo */
+        button {
+            display: block;
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        /* Correzione Footer: lo forziamo a stare sotto tutto */
+        footer {
+            width: 100%;
+            padding: 40px 20px;
+            margin-top: auto; /* Fondamentale per spingerlo in fondo */
+            background-color: #f0ede6; /* Colore base del foglio */
+            background-image: linear-gradient(rgba(0,0,0,0.05), rgba(0,0,0,0.05)); /* Leggermente più scuro */
+            border-top: 2px solid #8b0000;
+            color: #333;
+            box-sizing: border-box;
+            z-index: 100;
+            position: relative;
+        }
+
+        /* Se la barra laterale è fissa o float, questa regola assicura che il footer parta da sinistra */
+        @media (min-width: 769px) {
+            footer {
+            margin-left: 10%; /* Sposta il footer fuori dall'area del menu */
+            width: 90%; /* Occupa solo lo spazio rimanente */
+            padding: 40px 20px;
+            margin-top: auto;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-top: 2px solid var(--accent-color);
+            color: #333;
+            box-sizing: border-box;
+            position: relative;
+        }
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-col h4 {
+            color: #8b0000;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(139, 0, 0, 0.2);
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        #console-output {
+            margin-bottom: 20px;
+        }
+		
