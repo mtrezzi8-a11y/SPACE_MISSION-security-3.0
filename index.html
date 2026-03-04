@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>AstroNova - Monitoraggio Detriti Spaziali e Hub Aerospaziale</title>
+    <meta name="description" content="AstroNova: Protocollo avanzato per la sicurezza aerospaziale. Monitoraggio detriti spaziali, gestione Payload Sharing e Diritto Spaziale internazionale.">
+    <meta name="keywords" content="astronova, spazio, detriti spaziali, monitoraggio satelliti, sicurezza aerospaziale, detriti orbitali, diritto spaziale, razzi, kessler syndrome">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tuo-sito.it/">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+
+    <nav>
+        <h2>ASTRO-NAV</h2>
+        <ul>
+            <li><a onclick="scrollToSection('acc')">00. Accreditamento</a></li>
+            <li><a onclick="scrollToSection('doc')">INFO. Missione</a></li>
+            <li><a onclick="scrollToSection('debris')">01. Detriti Spaziali</a></li>
+            <li><a onclick="scrollToSection('payload')">02. Payload Sharing</a></li>
+            <li><a onclick="scrollToSection('law')">03. Diritto Spaziale</a></li>
+            <li><a onclick="scrollToSection('tourism')">04. Meteo Turistico</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>ASTRO-NOVA HUB: Sicurezza e Detriti Spaziali</h1>
+        <p>Sistema di sicurezza integrato per la navigazione e il lancio di vettori orbitali.</p>
+
+        <section id="acc">
+            <h2>00. Accreditamento Personale</h2>
+            <p>Sblocca i protocolli di sicurezza per interagire con i database aerospaziali.</p>
+            <div class="form-group">
+                <label>Nome</label>
+                <input type="text" id="userName" placeholder="Inserisci Nome">
+            </div>
+            <div class="form-group">
+                <label>Cognome</label>
+                <input type="text" id="userSurname" placeholder="Inserisci Cognome">
+            </div>
+            <div class="form-group">
+                <label>Email Ufficiale</label>
+                <input type="email" id="userEmail" placeholder="nome@agenzia.com">
+            </div>
+            <button onclick="validateUser()">Verifica e Sblocca Sistemi</button>
+        </section>
+
+        <section id="doc">
+            <h2>Relazione Tecnica di Missione: Sicurezza nello Spazio</h2>
+            <div class="doc-block">
+                <h3>Lo Scopo di AstroNova</h3>
+                <p>AstroNova è stato creato per rispondere a una necessità critica: <strong>rendere i viaggi spaziali e il lancio dei razzi più sicuri</strong>. Con l'aumento dei detriti spaziali (Sindrome di Kessler), la sicurezza delle rotte è diventata una priorità globale. Questo sito centralizza le segnalazioni per prevenire collisioni e ottimizzare i costi della Space Economy.</p>
+            </div>
+            
+            <div class="doc-block">
+                <h3>Ingegneria della Sicurezza</h3>
+                <p>Ogni modulo di questo sito serve a proteggere la vita umana e le infrastrutture orbitali. Dalla validazione delle coordinate dei frammenti alla protezione dai flare solari, AstroNova è il tuo scudo digitale extra-atmosferico per la gestione dei detriti spaziali.</p>
+            </div>
+        </section>
+
+        <div id="locked-content" style="opacity: 0.15; pointer-events: none; filter: blur(2px);">
+            
+            <section id="debris">
+                <h2>01. Monitoraggio Detriti Spaziali</h2>
+                <p>Aiutaci a catalogare i frammenti in orbita per prevenire impatti orbitali e garantire rotte sicure.</p>
+                <div class="form-group">
+                    <label>Coordinate GPS Rilevate (Lat, Long)</label>
+                    <input type="text" id="debrisCoords" placeholder="Es: 45.4642, 9.1900">
+                </div>
+                <button onclick="reportDebris()">Invia Segnalazione</button>
+            </section>
+
+            <section id="payload">
+                <h2>02. Marketplace "OrbitShare" e Lancio Razzi</h2>
+                <p>Ottimizza il lancio condividendo lo spazio residuo dei vettori commerciali per satelliti e carichi utili.</p>
+                <div class="form-group">
+                    <label>Massa Carico (kg)</label>
+                    <input type="number" id="mass" placeholder="Peso in kg">
+                </div>
+                <button onclick="sendPayload()">Richiedi Slot Lancio</button>
+            </section>
+
+            <section id="law">
+                <h2>03. Simulatore di Diritto Spaziale</h2>
+                <p>Risolvi dispute minerarie o territoriali su asteroidi e colonie lunari secondo i trattati internazionali.</p>
+                <div class="form-group">
+                    <label>Dettagli Controversia</label>
+                    <textarea id="lawText" rows="3" placeholder="Descrivi il caso legale..."></textarea>
+                </div>
+                <button onclick="sendLaw()">Sottoponi Arbitrato</button>
+            </section>
+
+            <section id="tourism">
+                <h2>04. Indice di Vivibilità e Meteo Spaziale</h2>
+                <p>Monitoraggio radiazioni solari e vento solare per la sicurezza dei civili in viaggio nello spazio.</p>
+                <div class="form-group">
+                    <label>Destinazione Orbitale</label>
+                    <select id="dest">
+                        <option>ISS (Stazione Internazionale)</option>
+                        <option>Lunar Gateway</option>
+                        <option>Mars Base Alpha</option>
+                    </select>
+                </div>
+                <button onclick="sendWeather()">Verifica Bollettino Meteo</button>
+            </section>
+        </div>
+
+        <div id="console-output">> SISTEMA BLOCCATO. Inserire credenziali operatore nella sezione 00...</div>
+    </main>
+
+    <script>
+        // INIZIALIZZAZIONE EMAILJS
+        (function() { emailjs.init("uKKA_CdLIyWl4yQoS"); })();
+
+        let isUnlocked = false;
+
+        function updateConsole(msg, isError = false) {
+            const consoleBox = document.getElementById('console-output');
+            consoleBox.style.color = isError ? "#ff3131" : "#00ff41";
+            consoleBox.innerHTML = "> " + msg;
+        }
+
+        // VALIDAZIONE ACCREDITAMENTO
+        function validateUser() {
+            const nome = document.getElementById('userName').value.trim();
+            const cognome = document.getElementById('userSurname').value.trim();
+            const email = document.getElementById('userEmail').value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (nome !== "" && cognome !== "" && emailRegex.test(email)) {
+                isUnlocked = true;
+                const content = document.getElementById('locked-content');
+                content.style.opacity = "1";
+                content.style.pointerEvents = "auto";
+                content.style.filter = "none";
+                updateConsole(`ACCESSO GARANTITO. Benvenuto Operatore ${nome.toUpperCase()}.`);
+            } else {
+                updateConsole("ERRORE: Dati incompleti o Email non valida.", true);
+            }
+        }
+
+        // FUNZIONE UNIFICATA INVIO EMAIL
+        function sendAstroData(subject, message) {
+            if (!isUnlocked) return;
+            updateConsole("Criptazione segnale... Invio dati al Controllo Terra...");
+
+            const params = {
+                subject: "REPORT " + subject,
+                user_name: document.getElementById('userName').value + " " + document.getElementById('userSurname').value,
+                user_email: document.getElementById('userEmail').value,
+                message: message
+            };
+
+            emailjs.send('service_space', 'template_slb3zgc', params)
+                .then(() => {
+                    updateConsole("TRASMISSIONE COMPLETATA. Dati ricevuti con successo.");
+                }, (err) => {
+                    updateConsole("ERRORE DI TRASMISSIONE: " + err.text, true);
+                });
+        }
+
+        function reportDebris() {
+            const gps = document.getElementById('debrisCoords').value;
+            const gpsRegex = /^-?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*-?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/;
+            if (gpsRegex.test(gps)) {
+                sendAstroData("01-DETRITI", "Coordinate rilevate: " + gps);
+            } else {
+                updateConsole("ERRORE: Formato coordinate GPS non valido.", true);
+            }
+        }
+
+        function sendPayload() {
+            const m = document.getElementById('mass').value;
+            if(m > 0) sendAstroData("02-PAYLOAD", "Richiesta per massa: " + m + "kg");
+            else updateConsole("ERRORE: Inserire massa valida.", true);
+        }
+
+        function sendLaw() {
+            const text = document.getElementById('lawText').value;
+            if(text.length > 10) sendAstroData("03-LEGGE", text);
+            else updateConsole("ERRORE: Dettagliare meglio il caso.", true);
+        }
+
+        function sendWeather() {
+            const d = document.getElementById('dest').value;
+            sendAstroData("04-METEO", "Controllo per: " + d);
+        }
+
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

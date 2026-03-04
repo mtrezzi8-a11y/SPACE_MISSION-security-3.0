@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap');
+
+:root {
+    --bg-crema: #f4f1ea;
+    --rosso-scuro: rgb(123, 0, 0);
+    --rosso-glow: #ff3131;
+    --blu-deep: #001233;
+    --blu-accento: #00a8ff;
+}
+
+* { box-sizing: border-box; transition: all 0.3s ease; }
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background-color: var(--bg-crema);
+    color: var(--blu-deep);
+    margin: 0;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Navigazione Laterale */
+nav {
+    width: 15%;
+    background: var(--rosso-scuro);
+    color: white;
+    padding: 25px 15px;
+    position: fixed;
+    height: 100vh;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+nav h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+nav ul { list-style: none; padding: 0; }
+nav ul li { margin: 18px 0; }
+nav ul li a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    padding: 8px;
+    font-size: 0.9rem;
+}
+
+nav ul li a:hover {
+    color: white;
+    background: rgba(255,255,255,0.1);
+    border-left: 4px solid white;
+}
+
+/* Area Principale */
+main {
+    margin-left: 15%;
+    padding: 60px 8%;
+    width: 85%;
+}
+
+h1 { font-family: 'Orbitron', sans-serif; color: var(--rosso-scuro); font-size: 2.8rem; margin-bottom: 10px; }
+h2 { font-family: 'Orbitron', sans-serif; color: var(--blu-deep); border-bottom: 2px solid var(--rosso-scuro); display: inline-block; margin-top: 50px; }
+h3 { color: var(--rosso-scuro); margin-top: 25px; }
+
+section {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+}
+
+.form-group { margin-bottom: 20px; }
+label { display: block; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; font-size: 0.75rem; color: #555; }
+input, select, textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+}
+
+button {
+    background: var(--blu-deep);
+    color: white;
+    padding: 16px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+button:hover { background: var(--rosso-scuro); transform: scale(1.02); }
+
+#console-output {
+    background: #0d0d0d;
+    color: #00ff41;
+    padding: 25px;
+    font-family: 'Courier New', monospace;
+    border-radius: 10px;
+    border: 1px solid #333;
+    position: sticky;
+    bottom: 20px;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
+}
+
+.doc-block p { line-height: 1.8; font-size: 1.1rem; text-align: justify; }
