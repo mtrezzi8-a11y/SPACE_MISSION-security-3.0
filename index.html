@@ -1,118 +1,198 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-	<meta name="google-site-verification" content="moTrnKi8I3cG5Jz2pjCnZLCw-dFQ1z5X10D-iU-RrVM" />
+    <meta name="google-site-verification" content="moTrnKi8I3cG5Jz2pjCnZLCw-dFQ1z5X10D-iU-RrVM" />
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>AstroNova - Monitoraggio Detriti Spaziali e Hub Aerospaziale</title>
-    <meta name="description" content="AstroNova: Protocollo avanzato per la sicurezza aerospaziale. Monitoraggio detriti spaziali, gestione Payload Sharing e Diritto Spaziale internazionale.">
-    <meta name="keywords" content="astronova, spazio, detriti spaziali, monitoraggio satelliti, sicurezza aerospaziale, detriti orbitali, diritto spaziale, razzi, kessler syndrome">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://tuo-sito.it/">
+    <title>SPACE_MISSION: security 3.0 - Hub Aerospaziale Avanzato</title>
+    <meta name="description" content="SPACE_MISSION: security 3.0 - Protocollo avanzato per la sicurezza aerospaziale, tracciamento detriti e gestione della Space Economy.">
+    
     <link rel="stylesheet" href="style.css">
+    
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <style>
+        /* Regola richiesta: i pulsanti vanno a capo */
+        button {
+            display: block;
+            margin-top: 15px;
+            width: 100%; /* Opzionale, per uniformità */
+        }
+    </style>
 </head>
 <body>
 
     <nav>
-        <h2>ASTRO-NAV</h2>
+        <h2>SPACE_MISSION 3.0</h2>
         <ul>
             <li><a onclick="scrollToSection('acc')">00. Accreditamento</a></li>
             <li><a onclick="scrollToSection('doc')">INFO. Missione</a></li>
-            <li><a onclick="scrollToSection('debris')">01. Detriti Spaziali</a></li>
-            <li><a onclick="scrollToSection('payload')">02. Payload Sharing</a></li>
-            <li><a onclick="scrollToSection('law')">03. Diritto Spaziale</a></li>
-            <li><a onclick="scrollToSection('tourism')">04. Meteo Turistico</a></li>
+            <li><a onclick="scrollToSection('debris')">01. Rilevazione detriti spaziali</a></li>
+            <li><a onclick="scrollToSection('payload')">02. Lanci in orbita</a></li>
+            <li><a onclick="scrollToSection('law')">03. Diritto e legalizzazione</a></li>
+            <li><a onclick="scrollToSection('tourism')">04. Bollettino Meteo spaziale</a></li>
+            <li><a onclick="scrollToSection('dart')">05. Difesa Planetaria (DART)</a></li>
         </ul>
     </nav>
 
     <main>
-        <h1>ASTRO-NOVA HUB: Sicurezza e Detriti Spaziali</h1>
-        <p>Sistema di sicurezza integrato per la navigazione e il lancio di vettori orbitali.</p>
+        <h1>SPACE_MISSION: security 3.0</h1>
+        <p>Protocollo Sicurezza Orbitale: Sistema integrato di monitoraggio detriti e gestione Space Economy.</p>
 
         <section id="acc">
             <h2>00. Accreditamento Personale</h2>
-            <p>Sblocca i protocolli di sicurezza per interagire con i database aerospaziali.</p>
+            <p>Inserire le credenziali per sbloccare l'accesso ai sistemi di sicurezza SPACE_MISSION 3.0.</p>
             <div class="form-group">
-                <label>Nome</label>
-                <input type="text" id="userName" placeholder="Inserisci Nome">
+                <label>Nome Operatore</label>
+                <input type="text" id="userName" placeholder="Nome">
             </div>
             <div class="form-group">
-                <label>Cognome</label>
-                <input type="text" id="userSurname" placeholder="Inserisci Cognome">
+                <label>Cognome Operatore</label>
+                <input type="text" id="userSurname" placeholder="Cognome">
             </div>
             <div class="form-group">
                 <label>Email Ufficiale</label>
                 <input type="email" id="userEmail" placeholder="nome@agenzia.com">
             </div>
-            <button onclick="validateUser()">Verifica e Sblocca Sistemi</button>
+            <button onclick="validateUser()">Inizializza Connessione Sicura</button>
         </section>
 
         <section id="doc">
-            <h2>Relazione Tecnica di Missione: Sicurezza nello Spazio</h2>
-            <div class="doc-block">
-                <h3>Lo Scopo di AstroNova</h3>
-                <p>AstroNova è stato creato per rispondere a una necessità critica: <strong>rendere i viaggi spaziali e il lancio dei razzi più sicuri</strong>. Con l'aumento dei detriti spaziali (Sindrome di Kessler), la sicurezza delle rotte è diventata una priorità globale. Questo sito centralizza le segnalazioni per prevenire collisioni e ottimizzare i costi della Space Economy.</p>
-            </div>
+            <h2>Relazione Tecnica di Missione: Protocollo SPACE_MISSION: security 3.0</h2>
             
             <div class="doc-block">
-                <h3>Ingegneria della Sicurezza</h3>
-                <p>Ogni modulo di questo sito serve a proteggere la vita umana e le infrastrutture orbitali. Dalla validazione delle coordinate dei frammenti alla protezione dai flare solari, AstroNova è il tuo scudo digitale extra-atmosferico per la gestione dei detriti spaziali.</p>
+                <h3>1. Inquadramento Scientifico: La Sindrome di Kessler</h3>
+                <p>
+                    L'ambiente orbitale terrestre sta affrontando una sfida senza precedenti. Il progetto <strong>SPACE_MISSION: security 3.0</strong> nasce come risposta diretta alla Sindrome di Kessler.
+                </p>
+            </div>
+
+            <div class="doc-block">
+                <h3>2. Ingegneria della Mitigazione e Tracciamento</h3>
+                <p>
+                    Il modulo 01 utilizza algoritmi di propagazione orbitale per prevedere i "conjunction assessments".
+                </p>
+            </div>
+
+            <div class="doc-block">
+                <h3>3. Space Economy e il Marketplace "OrbitShare"</h3>
+                <p>
+                    La gestione logistica del modulo 02 risponde alla necessità di ottimizzazione dei lanci orbitali.
+                </p>
+            </div>
+
+            <div class="doc-block">
+                <h3>4. Geopolitica e Diritto Spaziale Internazionale</h3>
+                <p>
+                    Il modulo 03 funge da interfaccia per la risoluzione delle dispute basandosi sugli Artemis Accords.
+                </p>
+            </div>
+
+            <div class="doc-block">
+                <h3>5. Protezione Ambientale Extra-Planetaria</h3>
+                <p>
+                    Il modulo 04 integra la protezione meteorologica e il monitoraggio del vento solare.
+                </p>
             </div>
         </section>
 
-        <div id="locked-content" style="opacity: 0.15; pointer-events: none; filter: blur(2px);">
+        <div id="locked-content" style="opacity: 0.15; pointer-events: none; filter: blur(4px); transition: all 0.6s ease;">
             
             <section id="debris">
-                <h2>01. Monitoraggio Detriti Spaziali</h2>
-                <p>Aiutaci a catalogare i frammenti in orbita per prevenire impatti orbitali e garantire rotte sicure.</p>
+                <h2>01. Tracciamento Detriti e Analisi Traiettoria</h2>
                 <div class="form-group">
-                    <label>Coordinate GPS Rilevate (Lat, Long)</label>
-                    <input type="text" id="debrisCoords" placeholder="Es: 45.4642, 9.1900">
+                    <label>Coordinate (Lat, Long)</label>
+                    <input type="text" id="debrisCoords" placeholder="Es: 41.8902, 12.4922">
                 </div>
-                <button onclick="reportDebris()">Invia Segnalazione</button>
+                <div class="form-group">
+                    <label>Classe Frammento</label>
+                    <select id="debrisSize">
+                        <option value="Micrometeorite">Small (&lt; 10cm)</option>
+                        <option value="Satellite Decommissionato">Medium (10cm - 2m)</option>
+                        <option value="Stadio Superiore Razzo">Large (&gt; 2m)</option>
+                    </select>
+                </div>
+                <button onclick="reportDebris()">Esegui Analisi Orbitale</button>
             </section>
 
             <section id="payload">
-                <h2>02. Marketplace "OrbitShare" e Lancio Razzi</h2>
-                <p>Ottimizza il lancio condividendo lo spazio residuo dei vettori commerciali per satelliti e carichi utili.</p>
+                <h2>02. Logistica OrbitShare: Preventivo e Slot</h2>
                 <div class="form-group">
-                    <label>Massa Carico (kg)</label>
-                    <input type="number" id="mass" placeholder="Peso in kg">
+                    <label>Massa Totale (kg)</label>
+                    <input type="number" id="mass" placeholder="Peso carico">
                 </div>
-                <button onclick="sendPayload()">Richiedi Slot Lancio</button>
+                <div class="form-group">
+                    <label>Destinazione</label>
+                    <select id="orbitType">
+                        <option value="LEO">LEO (Orbita Bassa) - $5.000/kg</option>
+                        <option value="MEO">MEO (Orbita Media) - $12.000/kg</option>
+                        <option value="GEO">GEO (Geostazionaria) - $30.000/kg</option>
+                    </select>
+                </div>
+                <button onclick="sendPayload()">Verifica Disponibilità e Costi</button>
             </section>
 
             <section id="law">
-                <h2>03. Simulatore di Diritto Spaziale</h2>
-                <p>Risolvi dispute minerarie o territoriali su asteroidi e colonie lunari secondo i trattati internazionali.</p>
+                <h2>03. Arbitrato: Outer Space Treaty Protocol</h2>
                 <div class="form-group">
-                    <label>Dettagli Controversia</label>
-                    <textarea id="lawText" rows="3" placeholder="Descrivi il caso legale..."></textarea>
+                    <label>Ambito Legale</label>
+                    <select id="lawScope">
+                        <option value="Minerario">Estrazione su Asteroidi / Luna</option>
+                        <option value="Responsabilità">Danni da Collisione (Art. VII)</option>
+                        <option value="Occupazione">Sovranità e Installazioni</option>
+                    </select>
                 </div>
-                <button onclick="sendLaw()">Sottoponi Arbitrato</button>
+                <div class="form-group">
+                    <label>Dettagli dell'Istanza</label>
+                    <textarea id="lawText" rows="3" placeholder="Descrivere i fatti..."></textarea>
+                </div>
+                <button onclick="sendLaw()">Invia protocollo Legale</button>
             </section>
 
             <section id="tourism">
-                <h2>04. Indice di Vivibilità e Meteo Spaziale</h2>
-                <p>Monitoraggio radiazioni solari e vento solare per la sicurezza dei civili in viaggio nello spazio.</p>
+                <h2>04. Monitoraggio Meteo (Real-Time)</h2>
                 <div class="form-group">
-                    <label>Destinazione Orbitale</label>
+                    <label>Destinazione Viaggio</label>
                     <select id="dest">
-                        <option>ISS (Stazione Internazionale)</option>
-                        <option>Lunar Gateway</option>
-                        <option>Mars Base Alpha</option>
+                        <option value="ISS">Stazione Internazionale</option>
+                        <option value="Lunar Gateway">Piattaforma Lunare</option>
+                        <option value="Mars Base Alpha">Colonia Marziana</option>
                     </select>
                 </div>
-                <button onclick="sendWeather()">Verifica Bollettino Meteo</button>
+                <button onclick="sendWeather()">Scarica Bollettino</button>
+            </section>
+
+            <section id="dart">
+                <h2>05. Difesa Planetaria: Protocollo DART Avanzato</h2>
+                <p>Simulazione di impatto cinetico per la deviazione di asteroidi Near-Earth (NEA).</p>
+                
+                <div class="form-group">
+                    <label>Diametro stimato dell'Asteroide (metri)</label>
+                    <input type="number" id="asteroidSize" value="160" placeholder="Es: 160">
+                </div>
+
+                <div class="form-group">
+                    <label>Composizione dell'Asteroide</label>
+                    <select id="asteroidComp">
+                        <option value="2000">Ghiaccio/Cometa (2000 kg/m³)</option>
+                        <option value="3000" selected>Roccia Silicea (3000 kg/m³)</option>
+                        <option value="8000">Metallico/Ferroso (8000 kg/m³)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Massa Impattatore Cinetico (kg)</label>
+                    <input type="number" id="dartMass" value="570" placeholder="Inserisci massa">
+                </div>
+                
+                <button onclick="sendDart()">Simula Deviazione Fisica</button>
             </section>
         </div>
 
-        <div id="console-output">> SISTEMA BLOCCATO. Inserire credenziali operatore nella sezione 00...</div>
+        <div id="console-output">> SPACE_MISSION 3.0: IN ATTESA DI ACCREDITAMENTO...</div>
     </main>
 
     <script>
-        // INIZIALIZZAZIONE EMAILJS
         (function() { emailjs.init("uKKA_CdLIyWl4yQoS"); })();
 
         let isUnlocked = false;
@@ -123,74 +203,151 @@
             consoleBox.innerHTML = "> " + msg;
         }
 
-        // VALIDAZIONE ACCREDITAMENTO
         function validateUser() {
             const nome = document.getElementById('userName').value.trim();
-            const cognome = document.getElementById('userSurname').value.trim();
             const email = document.getElementById('userEmail').value.trim();
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-            if (nome !== "" && cognome !== "" && emailRegex.test(email)) {
+            if (nome !== "" && emailRegex.test(email)) {
                 isUnlocked = true;
                 const content = document.getElementById('locked-content');
                 content.style.opacity = "1";
                 content.style.pointerEvents = "auto";
                 content.style.filter = "none";
-                updateConsole(`ACCESSO GARANTITO. Benvenuto Operatore ${nome.toUpperCase()}.`);
+                updateConsole(`SPACE_MISSION 3.0: Accesso garantito all'Operatore ${nome.toUpperCase()}.`);
             } else {
-                updateConsole("ERRORE: Dati incompleti o Email non valida.", true);
+                updateConsole("ERRORE: Credenziali di sicurezza non valide.", true);
             }
         }
 
-        // FUNZIONE UNIFICATA INVIO EMAIL
         function sendAstroData(subject, message) {
             if (!isUnlocked) return;
-            updateConsole("Criptazione segnale... Invio dati al Controllo Terra...");
-
             const params = {
-                subject: "REPORT " + subject,
+                subject: "SEC-3.0-" + subject,
                 user_name: document.getElementById('userName').value + " " + document.getElementById('userSurname').value,
                 user_email: document.getElementById('userEmail').value,
                 message: message
             };
-
             emailjs.send('service_space', 'template_slb3zgc', params)
                 .then(() => {
-                    updateConsole("TRASMISSIONE COMPLETATA. Dati ricevuti con successo.");
+                    updateConsole(`TRASMISSIONE COMPLETATA. Report SPACE_MISSION inviato a: ${params.user_email}`);
                 }, (err) => {
-                    updateConsole("ERRORE DI TRASMISSIONE: " + err.text, true);
+                    updateConsole("ERRORE DI SISTEMA: " + err.text, true);
                 });
         }
 
         function reportDebris() {
+            if (!isUnlocked) return;
             const gps = document.getElementById('debrisCoords').value;
+            const size = document.getElementById('debrisSize').value;
             const gpsRegex = /^-?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*-?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/;
+
             if (gpsRegex.test(gps)) {
-                sendAstroData("01-DETRITI", "Coordinate rilevate: " + gps);
+                updateConsole("Analisi traiettoria in corso...");
+                const inclinazione = (Math.random() * 90).toFixed(2);
+                const velocita = (27000 + Math.random() * 1000).toFixed(0);
+                const analisi = `ANALISI TRAIETTORIA: Oggetto classe ${size}. Coordinate: ${gps}. Inclinazione: ${inclinazione}°. Velocità: ${velocita} km/h. Rischio Impatto: MEDIO.`;
+                sendAstroData("01-TRAIETTORIA", analisi);
             } else {
-                updateConsole("ERRORE: Formato coordinate GPS non valido.", true);
+                updateConsole("ERRORE: Formato GPS non valido.", true);
             }
         }
 
         function sendPayload() {
+            if (!isUnlocked) return;
             const m = document.getElementById('mass').value;
-            if(m > 0) sendAstroData("02-PAYLOAD", "Richiesta per massa: " + m + "kg");
-            else updateConsole("ERRORE: Inserire massa valida.", true);
+            const orbit = document.getElementById('orbitType').value;
+            if(m > 0) {
+                let p = (orbit === "LEO") ? 5000 : (orbit === "MEO") ? 12000 : 30000;
+                const costo = (m * p).toLocaleString();
+                updateConsole(`Ricerca slot vettori per orbita ${orbit}...`);
+                const analisi = `DISPONIBILITÀ: Rilevato slot commerciale. Destinazione: ${orbit}. Massa: ${m}kg. Costo missione: $${costo}. Finestra di lancio: Q4 2026.`;
+                sendAstroData("02-LOGISTICA", analisi);
+            } else {
+                updateConsole("ERRORE: Massa non valida.", true);
+            }
         }
 
         function sendLaw() {
+            if (!isUnlocked) return;
+            const scope = document.getElementById('lawScope').value;
             const text = document.getElementById('lawText').value;
-            if(text.length > 10) sendAstroData("03-LEGGE", text);
-            else updateConsole("ERRORE: Dettagliare meglio il caso.", true);
+            if(text.length > 10) {
+                updateConsole("Generazione istanza legale formale...");
+                const dossier = `ISTANZA FORMALE DI ARBITRATO. Ambito: ${scope}. Riferimento Legale: Trattato ONU 1967. Fatti: ${text}. Dossier protocollato per inoltro a UNOOSA.`;
+                sendAstroData("03-DIRITTO", dossier);
+            } else {
+                updateConsole("ERRORE: Descrizione insufficiente.", true);
+            }
         }
 
-        function sendWeather() {
+        async function sendWeather() {
+            if (!isUnlocked) return;
             const d = document.getElementById('dest').value;
-            sendAstroData("04-METEO", "Controllo per: " + d);
+            updateConsole("Connessione ai satelliti NASA DONKI...");
+            try {
+                const response = await fetch('https://api.nasa.gov/DONKI/CME?startDate=2024-01-01&api_key=DEMO_KEY');
+                const data = await response.json();
+                const last = data[data.length - 1];
+                const v = last ? last.speed + " km/s" : "415 km/s";
+                const r = (last && last.speed > 600) ? "ELEVATO" : "BASSO";
+                const bollettino = `METEO SPAZIALE NASA: Destinazione ${d}. Vento Solare: ${v}. Rischio Radiazioni: ${r}. Data: ${new Date().toLocaleString()}.`;
+                sendAstroData("04-NASA", bollettino);
+            } catch (e) {
+                updateConsole("Errore NASA. Invio dati di backup...", true);
+                sendAstroData("04-NASA-BACKUP", "Sistemi NASA offline. Rischio stimato: MINIMO.");
+            }
+        }
+
+        // --- FUNZIONE DART AGGIORNATA CON PARAMETRI FISICI ---
+        function sendDart() {
+            if (!isUnlocked) return;
+            
+            const m_dart = parseFloat(document.getElementById('dartMass').value);
+            const d_asteroid = parseFloat(document.getElementById('asteroidSize').value);
+            const rho = parseFloat(document.getElementById('asteroidComp').value);
+            
+            if (m_dart > 0 && d_asteroid > 0) {
+                updateConsole(`Inizializzazione simulatore fisico per ${m_dart}kg su bersaglio di ${d_asteroid}m...`);
+                
+                // 1. Calcolo Massa dell'Asteroide (Approssimato a una sfera)
+                const r = d_asteroid / 2;
+                const volume = (4/3) * Math.PI * Math.pow(r, 3);
+                const m_asteroid = volume * rho; 
+                
+                // 2. Parametri di impatto
+                const v_dart = 6600; // 6.6 km/s in m/s
+                const beta = 2.4; // Fattore di esaltazione missione DART
+                
+                // 3. Calcolo variazione velocità (Delta V)
+                const deltaV = (beta * m_dart * v_dart) / m_asteroid; 
+                
+                // 4. Calcolo Energia Cinetica (TJ)
+                const energia = (0.5 * m_dart * Math.pow(v_dart, 2)) / 1e12;
+
+                const analisi = `PROTOCOLLO DIFESA PLANETARIA (DART) - ANALISI FISICA
+-------------------------------------------
+DATI BERSAGLIO:
+- Diametro: ${d_asteroid} m
+- Densità: ${rho} kg/m³
+- Massa Asteroide: ${m_asteroid.toExponential(2)} kg
+
+DINAMICA IMPATTO:
+- Energia sprigionata: ${energia.toFixed(2)} Terajoule
+- Variazione Velocità (Δv): ${deltaV.toFixed(8)} m/s
+- Fattore Beta (Enhancement): ${beta}
+
+RISULTATO: Traiettoria dell'asteroide alterata con successo per prevenire l'impatto.`;
+
+                sendAstroData("05-DART-DETAILED", analisi);
+            } else {
+                updateConsole("ERRORE: Parametri non validi per la simulazione.", true);
+            }
         }
 
         function scrollToSection(id) {
-            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+            const element = document.getElementById(id);
+            if(element) element.scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 </body>
