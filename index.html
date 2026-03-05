@@ -12,6 +12,38 @@
     
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
+    <style>
+        button {
+            display: block;
+            margin-top: 15px;
+            width: 100%;
+            cursor: pointer;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .doc-block {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-left: 3px solid #030a66;
+            background: rgba(225, 232, 232);
+            border-radius: 0 8px 8px 0;
+        }
+        .doc-block h3 {
+            color: #030a66;
+            margin-top: 0;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+        .doc-block p {
+            line-height: 1.6;
+            text-align: justify;
+        }
+        .highlight-text {
+            color: #05064f;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
@@ -48,43 +80,63 @@
                 <input type="email" id="userEmail" placeholder="nome@agenzia.com">
             </div>
             <button onclick="validateUser()">Inizializza Connessione Sicura</button>
+			<br>
+			<h5>I dati inseriti sono protetti dal sistema di sicurezza SPACE_MISSION. Essi verranno utilizzati solo per l'invio dei dati che verranno richiesti durante la visita del sito. Non verranno inviate pubblicità o popup via email.<br>
+			Per maggiori informazioni visita la pagina <a href="file:///C:/Users/mtrez/OneDrive/Dokumenty/sito%20personale/security.html">sicurezza</a></h5>
         </section>
 
         <section id="doc">
+			<h3>Obiettivo dell'Hub: Democratizzazione dei Dati Spaziali</h3>
+			<p>
+			Lo scopo principale di <strong>SPACE_MISSION: security 3.0</strong> è semplificare drasticamente la lettura e l'interpretazione dei dati complessi che la <strong>NASA</strong> mette a disposizione attraverso i suoi protocolli API pubblici.
+			</p>
+			<p>
+			Spesso, consultare i database originali richiede competenze tecniche avanzate, la registrazione di chiavi di accesso personali e lunghe ricerche tra la documentazione tecnica. Il nostro Hub agisce come un <strong>ponte tecnologico</strong>: permette a chiunque di visualizzare telemetrie, bollettini meteo e tracciamento detriti in tempo reale senza dover generare il proprio codice o navigare tra i complessi portali delle agenzie spaziali.
+			</p>
+			<p>
+			In questo modo, aiutiamo le persone a risparmiare tempo prezioso, trasformando stringhe di dati grezzi in informazioni leggibili e immediate. Crediamo che la conoscenza dello spazio debba essere alla portata di tutti, rendendo la sicurezza orbitale un bene comune accessibile con un semplice click.
+			</p>
+			</div>
+
             <h2>Relazione Tecnica di Missione: Protocollo SPACE_MISSION: security 3.0</h2>
             
+
             <div class="doc-block">
                 <h3>1. Inquadramento Scientifico: La Sindrome di Kessler</h3>
                 <p>
-                    L'ambiente orbitale terrestre sta affrontando una sfida senza precedenti. Il progetto <strong>SPACE_MISSION: security 3.0</strong> nasce come risposta diretta alla Sindrome di Kessler.
+                    L'ambiente orbitale terrestre sta affrontando una sfida senza precedenti. Il progetto <span class="highlight-text">SPACE_MISSION: security 3.0</span> nasce come risposta diretta alla Sindrome di Kessler, un effetto a catena teorizzato nel 1978. Quando la densità di oggetti in orbita bassa (LEO) diventa critica, una singola collisione tra satelliti può generare una nuvola di frammenti iper-velocità, capaci di distruggere altri asset in un domino inarrestabile. Il nostro sistema monitora costantemente queste "nubi di detriti" per prevenire che lo spazio diventi una prigione di rottami inaccessibile alle future generazioni.
                 </p>
             </div>
+
 
             <div class="doc-block">
                 <h3>2. Ingegneria della Mitigazione e Tracciamento</h3>
                 <p>
-                    Il modulo 01 utilizza algoritmi di propagazione orbitale per prevedere i "conjunction assessments".
+                    Il <span class="highlight-text">Modulo 01</span> non si limita a osservare, ma elabora attivamente dati telemetrici complessi. Utilizzando algoritmi di propagazione orbitale, il sistema calcola i cosiddetti "conjunction assessments" (valutazioni di congiunzione). Quando due oggetti entrano in una rotta di collisione potenziale, il protocollo genera una notifica di allerta immediata, permettendo agli operatori di pianificare manovre correttive (CAM) e salvare infrastrutture dal valore di miliardi di dollari.
                 </p>
             </div>
+
 
             <div class="doc-block">
                 <h3>3. Space Economy e il Marketplace "OrbitShare"</h3>
                 <p>
-                    La gestione logistica del modulo 02 risponde alla necessità di ottimizzazione dei lanci orbitali.
+                    L'accesso allo spazio sta diventando un mercato globale. La gestione logistica del <span class="highlight-text">Modulo 02</span> risponde alla necessità di ottimizzazione dei carichi utili (payload). Attraverso il concetto di "OrbitShare", SPACE_MISSION facilita l'uso efficiente dei razzi vettori, riducendo gli sprechi e assicurando che ogni lancio sia economicamente sostenibile. Gestiamo la domanda e l'offerta di slot orbitali per massimizzare il ritorno sull'investimento delle nuove start-up spaziali.
                 </p>
             </div>
+
 
             <div class="doc-block">
                 <h3>4. Geopolitica e Diritto Spaziale Internazionale</h3>
                 <p>
-                    Il modulo 03 funge da interfaccia per la risoluzione delle dispute basandosi sugli Artemis Accords.
+                    Con l'aumento delle basi lunari e delle estrazioni minerarie su asteroidi, il <span class="highlight-text">Modulo 03</span> agisce come un tribunale digitale preventivo. Ci basiamo sui principi degli <span class="highlight-text">Artemis Accords</span> e sui trattati delle Nazioni Unite (Outer Space Treaty) per garantire che l'esplorazione avvenga in modo pacifico e trasparente. Il sistema aiuta a risolvere dispute sulla sovranità delle risorse e sulla responsabilità dei danni causati in orbita.
                 </p>
             </div>
+
 
             <div class="doc-block">
                 <h3>5. Protezione Ambientale Extra-Planetaria</h3>
                 <p>
-                    Il modulo 04 integra la protezione meteorologica e il monitoraggio del vento solare.
+                    Lo spazio è un ecosistema fragile. Il <span class="highlight-text">Modulo 04</span> monitora il "clima spaziale", integrando dati NASA sulle espulsioni di massa coronale (CME) e sulle tempeste geomagnetiche. Queste radiazioni possono danneggiare i circuiti dei satelliti e mettere a rischio la vita degli astronauti. Il nostro protocollo garantisce che le operazioni avvengano solo durante finestre di sicurezza meteorologica, proteggendo l'integrità tecnologica dell'intera rete satellitare.
                 </p>
             </div>
         </section>
@@ -216,6 +268,11 @@
 
         let isUnlocked = false;
 
+        const nasaApiKey = "7fJqjyfOPhYplNpobXMooBVhoGdbnjvCRihOyjoj"; 
+
+        const ADMIN_TEMPLATE_ID = 'template_slb3zgc';
+        const USER_TEMPLATE_ID = 'template_ttg9pzh'; 
+
         function updateConsole(msg, isError = false) {
             const consoleBox = document.getElementById('console-output');
             consoleBox.style.color = isError ? "#ff3131" : "#00ff41";
@@ -233,113 +290,102 @@
                 content.style.opacity = "1";
                 content.style.pointerEvents = "auto";
                 content.style.filter = "none";
-                updateConsole(`SPACE_MISSION 3.0: Accesso garantito all'Operatore ${nome.toUpperCase()}.`);
+                updateConsole(`Accesso garantito all'Operatore ${nome.toUpperCase()}.`);
             } else {
-                updateConsole("ERRORE: Credenziali di sicurezza non valide.", true);
+                updateConsole("Credenziali non valide.", true);
             }
         }
 
-        function sendAstroData(subject, message) {
+        function sendDoubleEmail(subject, message) {
             if (!isUnlocked) return;
+            
             const params = {
                 subject: "SEC-3.0-" + subject,
-                user_name: document.getElementById('userName').value + " " + document.getElementById('userSurname').value,
+                user_name: document.getElementById('userName').value,
                 user_email: document.getElementById('userEmail').value,
-                message: message
+                message: message,
+                date: new Date().toLocaleString()
             };
-            emailjs.send('service_space', 'template_slb3zgc', params)
+
+            emailjs.send('service_space', ADMIN_TEMPLATE_ID, params)
+                .then(() => console.log("Log admin archiviato."))
+                .catch(err => console.error("Errore Admin:", err));
+
+            emailjs.send('service_space', USER_TEMPLATE_ID, params)
                 .then(() => {
-                    updateConsole(`TRASMISSIONE COMPLETATA. Report SPACE_MISSION inviato a: ${params.user_email}`);
-                }, (err) => {
-                    updateConsole("ERRORE DI SISTEMA: " + err.text, true);
+                    updateConsole(`TRASMISSIONE COMPLETATA. Report inviato a: ${params.user_email}`);
+                })
+                .catch(err => {
+                    updateConsole("ERRORE INVIO REPORT UTENTE: " + err.text, true);
                 });
         }
 
         function reportDebris() {
-            if (!isUnlocked) return;
             const gps = document.getElementById('debrisCoords').value;
             const size = document.getElementById('debrisSize').value;
             const gpsRegex = /^-?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*-?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/;
 
             if (gpsRegex.test(gps)) {
-                updateConsole("Analisi traiettoria in corso...");
                 const inclinazione = (Math.random() * 90).toFixed(2);
-                const velocita = (27000 + Math.random() * 1000).toFixed(0);
-                const analisi = `ANALISI TRAIETTORIA: Oggetto classe ${size}. Coordinate: ${gps}. Inclinazione: ${inclinazione}°. Velocità: ${velocita} km/h. Rischio Impatto: MEDIO.`;
-                sendAstroData("01-TRAIETTORIA", analisi);
+                const analisi = `RILEVAMENTO DETRITO:\nClasse: ${size}\nCoordinate: ${gps}\nInclinazione: ${inclinazione}°\nStatus: Tracciamento attivo.`;
+                updateConsole("Analisi traiettoria in corso...");
+                sendDoubleEmail("01-TRAIETTORIA", analisi);
             } else {
-                updateConsole("ERRORE: Formato GPS non valido.", true);
+                updateConsole("Coordinate GPS non valide.", true);
             }
         }
 
         function sendPayload() {
-            if (!isUnlocked) return;
             const m = document.getElementById('mass').value;
             const orbit = document.getElementById('orbitType').value;
             if(m > 0) {
-                let p = (orbit === "LEO") ? 5000 : (orbit === "MEO") ? 12000 : 30000;
-                const costo = (m * p).toLocaleString();
-                updateConsole(`Ricerca slot vettori per orbita ${orbit}...`);
-                const analisi = `DISPONIBILITÀ: Rilevato slot commerciale. Destinazione: ${orbit}. Massa: ${m}kg. Costo missione: $${costo}. Finestra di lancio: Q4 2026.`;
-                sendAstroData("02-LOGISTICA", analisi);
+                const costo = (m * (orbit === "LEO" ? 5000 : 15000)).toLocaleString();
+                const analisi = `PIANO DI LANCIO:\nOrbita: ${orbit}\nMassa: ${m}kg\nCosto stimato: $${costo}\nSlot: Disponibile Q4.`;
+                updateConsole("Verifica disponibilità vettori...");
+                sendDoubleEmail("02-LOGISTICA", analisi);
             } else {
-                updateConsole("ERRORE: Massa non valida.", true);
+                updateConsole("Specificare massa payload.", true);
             }
         }
 
         function sendLaw() {
-            if (!isUnlocked) return;
             const scope = document.getElementById('lawScope').value;
             const text = document.getElementById('lawText').value;
             if(text.length > 10) {
-                updateConsole("Generazione istanza legale formale...");
-                const dossier = `ISTANZA FORMALE DI ARBITRATO. Ambito: ${scope}. Riferimento Legale: Trattato ONU 1967. Fatti: ${text}. Dossier protocollato per inoltro a UNOOSA.`;
-                sendAstroData("03-DIRITTO", dossier);
+                const dossier = `ISTANZA LEGALE:\nAmbito: ${scope}\nDescrizione: ${text}\nInoltrato a: Ufficio Legale Spaziale.`;
+                updateConsole("Protocollazione dossier legale...");
+                sendDoubleEmail("03-DIRITTO", dossier);
             } else {
-                updateConsole("ERRORE: Descrizione insufficiente.", true);
+                updateConsole("Descrizione insufficiente.", true);
             }
         }
 
-        async function sendWeather() {
-            if (!isUnlocked) return;
-            const d = document.getElementById('dest').value;
-            updateConsole("Connessione ai satelliti NASA DONKI...");
+        async function fetchNasaData() {
+            updateConsole("Interrogazione satelliti NASA DONKI...");
             try {
-                const response = await fetch('https://api.nasa.gov/DONKI/CME?startDate=2024-01-01&api_key=DEMO_KEY');
+                const response = await fetch(`https://api.nasa.gov/DONKI/CME?startDate=2024-01-01&api_key=${nasaApiKey}`);
                 const data = await response.json();
                 const last = data[data.length - 1];
-                const v = last ? last.speed + " km/s" : "415 km/s";
-                const r = (last && last.speed > 600) ? "ELEVATO" : "BASSO";
-                const bollettino = `METEO SPAZIALE NASA: Destinazione ${d}. Vento Solare: ${v}. Rischio Radiazioni: ${r}. Data: ${new Date().toLocaleString()}.`;
-                sendAstroData("04-NASA", bollettino);
+                const speed = last?.adoptingReports?.[0]?.speed || "450";
+                const d = document.getElementById('dest').value;
+                const bollettino = `METEO SPAZIALE NASA:\nDestinazione: ${d}\nVento Solare: ${speed} km/s\nStatus: Navigazione sicura.`;
+                sendDoubleEmail("04-NASA-REPORT", bollettino);
             } catch (e) {
-                updateConsole("Errore NASA. Invio dati di backup...", true);
-                sendAstroData("04-NASA-BACKUP", "Sistemi NASA offline. Rischio stimato: MINIMO.");
+                updateConsole("Errore NASA. Invio dati stimati.", true);
+                sendDoubleEmail("04-NASA-BACKUP", "Sistemi offline. Dati stimati: Radiazioni stabili.");
             }
         }
 
         function sendDart() {
-            if (!isUnlocked) return;
-            
             const m_dart = parseFloat(document.getElementById('dartMass').value);
             const d_asteroid = parseFloat(document.getElementById('asteroidSize').value);
-            const rho = parseFloat(document.getElementById('asteroidComp').value);
-            
             if (m_dart > 0 && d_asteroid > 0) {
-                updateConsole(`Inizializzazione simulatore fisico per ${m_dart}kg su bersaglio di ${d_asteroid}m...`);
-                const r = d_asteroid / 2;
-                const volume = (4/3) * Math.PI * Math.pow(r, 3);
-                const m_asteroid = volume * rho; 
-                const v_dart = 6600; 
-                const beta = 2.4; 
-                const deltaV = (beta * m_dart * v_dart) / m_asteroid; 
-                const energia = (0.5 * m_dart * Math.pow(v_dart, 2)) / 1e12;
-
-                const analisi = `PROTOCOLLO DIFESA PLANETARIA (DART) - ANALISI FISICA\n-------------------------------------------\nDATI BERSAGLIO:\n- Diametro: ${d_asteroid} m\n- Densità: ${rho} kg/m³\n- Massa Asteroide: ${m_asteroid.toExponential(2)} kg\n\nDINAMICA IMPATTO:\n- Energia sprigionata: ${energia.toFixed(2)} Terajoule\n- Variazione Velocità (Δv): ${deltaV.toFixed(8)} m/s\n- Fattore Beta (Enhancement): ${beta}\n\nRISULTATO: Traiettoria dell'asteroide alterata con successo per prevenire l'impatto.`;
-
-                sendAstroData("05-DART-DETAILED", analisi);
+                const energia = (0.5 * m_dart * Math.pow(6600, 2)) / 1e12;
+                const analisi = `PROTOCOLLO DART:\nImpattatore: ${m_dart}kg\nBersaglio: ${d_asteroid}m\nEnergia Sprigionata: ${energia.toFixed(2)} Terajoule\nRisultato: Deviazione confermata.`;
+                updateConsole("Simulazione cinetica in corso...");
+                sendDoubleEmail("05-DART-PHYSICS", analisi);
             } else {
-                updateConsole("ERRORE: Parametri non validi per la simulazione.", true);
+                updateConsole("Parametri simulazione incompleti.", true);
             }
         }
 

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocollo Sicurezza e Privacy - SPACE_MISSION 3.0</title>
+    <style>
+        :root {
+            --accent-color: #8b0000;
+            --bg-color: #f0ede6;
+            --text-color: #2c3e50;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 800px;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--accent-color);
+        }
+
+        h1 {
+            color: var(--accent-color);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            color: var(--accent-color);
+            margin-top: 30px;
+            font-size: 1.4rem;
+        }
+
+        .security-badge {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .policy-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .policy-item {
+            background: #f9f9f9;
+            margin-bottom: 15px;
+            padding: 20px;
+            border-left: 4px solid var(--accent-color);
+            border-radius: 4px;
+        }
+
+        .policy-item strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        .icon-box {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        .btn-back {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: opacity 0.3s;
+        }
+
+        .btn-back:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="security-badge">SISTEMA PROTETTO v3.0</div>
+        <h1>Protocollo Trasparenza SPACE_MISSION</h1>
+        
+        <p>Il presente documento definisce i criteri di gestione dei dati e le politiche di comunicazione elettronica applicate all'interno dell'infrastruttura <strong>SPACE_MISSION: security 3.0</strong>.</p>
+
+        <h2>1. Politica Anti-Spam e Comunicazioni</h2>
+        <ul class="policy-list">
+            <li class="policy-item">
+                <strong>Assenza di Pubblicità</strong>
+                Garantiamo che il sistema non invierà mai email promozionali, newsletter non richieste o materiale pubblicitario di terze parti. L'architettura è progettata esclusivamente per fini tecnici e informativi aerospaziali.
+            </li>
+            <li class="policy-item">
+                <strong>Comunicazioni "On-Demand"</strong>
+                Le email vengono generate ed inviate esclusivamente quando l'operatore preme manualmente i pulsanti di "Trasmissione" o "Invio Report". Non esistono sistemi di invio automatico temporizzato (cron-jobs) verso la tua casella di posta.
+            </li>
+            <li class="policy-item">
+                <strong>Nessun Pop-up Invasivo</strong>
+                L'interfaccia utente è priva di script per pop-up pubblicitari. Gli unici messaggi visualizzati sono quelli della console tecnica o finestre di dialogo necessarie al funzionamento del simulatore.
+            </li>
+        </ul>
+
+        <h2>2. Sicurezza dei Dati (EmailJS & NASA API)</h2>
+        <ul class="policy-list">
+            <li class="policy-item">
+                <strong>Protocollo EmailJS</strong>
+                Utilizziamo il servizio EmailJS per l'invio sicuro dei report. Questo significa che i tuoi dati di accesso (come la password della tua email) non passano mai attraverso il nostro server, garantendo la massima riservatezza delle tue credenziali.
+            </li>
+            <li class="policy-item">
+                <strong>Integrazione NASA</strong>
+                I dati meteorologici e spaziali provengono direttamente dai nodi pubblici NASA. La connessione è di sola lettura e non comporta lo scambio di dati sensibili dell'utente con l'agenzia spaziale.
+            </li>
+        </ul>
+
+        <h2>3. Diritti dell'Operatore</h2>
+        <p>Ogni utente che interagisce con l'Hub ha il diritto di sapere che:</p>
+        <ul>
+            <li>I dati inseriti nel form di accreditamento sono volatili e non vengono salvati in database permanenti a lungo termine.</li>
+            <li>In qualsiasi momento è possibile interrompere la sessione semplicemente chiudendo la scheda del browser, interrompendo ogni collegamento attivo.</li>
+        </ul>
+
+        <a href="#" class="btn-back" onclick="window.history.back(); return false;">Ritorna al Centro Operativo</a>
+
+        <footer>
+            Documento Redatto dal Dipartimento di Sicurezza Informatica SPACE_MISSION.<br>
+            Ultimo aggiornamento: Marzo 2026
+        </footer>
+    </div>
+
+</body>
+</html>
