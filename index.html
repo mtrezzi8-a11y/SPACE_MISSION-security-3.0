@@ -295,7 +295,6 @@
             }
         }
 
-        // Funzione asincrona per gestire gli invii multipli
         async function sendDoubleEmail(subject, message) {
             if (!isUnlocked) return;
             
@@ -310,7 +309,6 @@
             updateConsole(`Inizializzazione trasmissione ${subject}...`);
 
             try {
-                // Eseguiamo entrambi gli invii contemporaneamente
                 await Promise.all([
                     emailjs.send('service_space', ADMIN_TEMPLATE_ID, params),
                     emailjs.send('service_space', USER_TEMPLATE_ID, params)
@@ -362,19 +360,28 @@
             }
         }
 
+        // Funzione corretta per il meteo (collegata al tasto sendWeather)
         async function sendWeather() {
+            if (!isUnlocked) return;
             updateConsole("Interrogazione satelliti NASA DONKI...");
             try {
                 const response = await fetch(`https://api.nasa.gov/DONKI/CME?startDate=2024-01-01&api_key=${nasaApiKey}`);
                 const data = await response.json();
-                const last = data[data.length - 1];
-                const speed = last?.adoptingReports?.[0]?.speed || "450";
+                
+                let speed = "450"; // Valore di fallback
+                if (data && data.length > 0) {
+                    const last = data[data.length - 1];
+                    speed = last?.adoptingReports?.[0]?.speed || "450";
+                }
+                
                 const d = document.getElementById('dest').value;
                 const bollettino = `METEO SPAZIALE NASA:\nDestinazione: ${d}\nVento Solare: ${speed} km/s\nStatus: Navigazione sicura.`;
-                sendDoubleEmail("04-NASA-REPORT", bollettino);
+                
+                await sendDoubleEmail("04-NASA-REPORT", bollettino);
             } catch (e) {
+                console.error("Errore NASA:", e);
                 updateConsole("Errore NASA. Invio dati stimati.", true);
-                sendDoubleEmail("04-NASA-BACKUP", "Sistemi offline. Dati stimati: Radiazioni stabili.");
+                await sendDoubleEmail("04-NASA-BACKUP", "Sistemi offline. Dati stimati: Radiazioni stabili.");
             }
         }
 
