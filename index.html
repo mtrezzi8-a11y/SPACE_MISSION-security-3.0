@@ -267,7 +267,6 @@
 
         let isUnlocked = false;
 
-        const nasaApiKey = "7fJqjyfOPhYplNpobXMooBVhoGdbnjvCRihOyjoj"; 
 
         const ADMIN_TEMPLATE_ID = 'template_slb3zgc';
         const USER_TEMPLATE_ID = 'template_ttg9pzh'; 
@@ -366,7 +365,7 @@
             updateConsole("Interrogazione satelliti NASA DONKI...");
             try {
                 // Cerchiamo eventi di espulsione di massa coronale (CME)
-                const response = await fetch(`https://api.nasa.gov/DONKI/CME?startDate=2024-01-01&api_key=${nasaApiKey}`);
+                const response = await fetch(`https://api.nasa.gov/DONKI/CME?startDate=2024-01-01&api_key=7fJqjyfOPhYplNpobXMooBVhoGdbnjvCRihOyjoj`);
                 const data = await response.json();
                 
                 let speed = "Dato non disponibile";
