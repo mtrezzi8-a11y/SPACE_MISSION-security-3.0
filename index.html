@@ -80,23 +80,22 @@
                 <input type="email" id="userEmail" placeholder="nome@agenzia.com">
             </div>
             <button onclick="validateUser()">Inizializza Connessione Sicura</button>
-			<br>
-			<h5>I dati inseriti sono protetti dal sistema di sicurezza SPACE_MISSION. Essi verranno utilizzati solo per l'invio dei dati che verranno richiesti durante la visita del sito. Non verranno inviate pubblicità o popup via email.<br>
-			Per maggiori informazioni visita la pagina <a href="security.html">sicurezza</a></h5>
+            <br>
+            <h5>I dati inseriti sono protetti dal sistema di sicurezza SPACE_MISSION. Essi verranno utilizzati solo per l'invio dei dati che verranno richiesti durante la visita del sito. Non verranno inviate pubblicità o popup via email.<br>
+            Per maggiori informazioni visita la pagina <a href="security.html">sicurezza</a></h5>
         </section>
 
         <section id="doc">
-			<h3>Obiettivo dell'Hub: Democratizzazione dei Dati Spaziali</h3>
-			<p>
-			Lo scopo principale di <strong>SPACE_MISSION: security 3.0</strong> è semplificare drasticamente la lettura e l'interpretazione dei dati complessi che la <strong>NASA</strong> mette a disposizione attraverso i suoi protocolli API pubblici.
-			</p>
-			<p>
-			Spesso, consultare i database originali richiede competenze tecniche avanzate, la registrazione di chiavi di accesso personali e lunghe ricerche tra la documentazione tecnica. Il nostro Hub agisce come un <strong>ponte tecnologico</strong>: permette a chiunque di visualizzare telemetrie, bollettini meteo e tracciamento detriti in tempo reale senza dover generare il proprio codice o navigare tra i complessi portali delle agenzie spaziali.
-			</p>
-			<p>
-			In questo modo, aiutiamo le persone a risparmiare tempo prezioso, trasformando stringhe di dati grezzi in informazioni leggibili e immediate. Crediamo che la conoscenza dello spazio debba essere alla portata di tutti, rendendo la sicurezza orbitale un bene comune accessibile con un semplice click.
-			</p>
-			</div>
+            <h3>Obiettivo dell'Hub: Democratizzazione dei Dati Spaziali</h3>
+            <p>
+            Lo scopo principale di <strong>SPACE_MISSION: security 3.0</strong> è semplificare drasticamente la lettura e l'interpretazione dei dati complessi che la <strong>NASA</strong> mette a disposizione attraverso i suoi protocolli API pubblici.
+            </p>
+            <p>
+            Spesso, consultare i database originali richiede competenze tecniche avanzate, la registrazione di chiavi di accesso personali e lunghe ricerche tra la documentazione tecnica. Il nostro Hub agisce come un <strong>ponte tecnologico</strong>: permette a chiunque di visualizzare telemetrie, bollettini meteo e tracciamento detriti in tempo reale senza dover generare il proprio codice o navigare tra i complessi portali delle agenzie spaziali.
+            </p>
+            <p>
+            In questo modo, aiutiamo le persone a risparmiare tempo prezioso, trasformando stringhe di dati grezzi in informazioni leggibili e immediate. Crediamo che la conoscenza dello spazio debba essere alla portata di tutti, rendendo la sicurezza orbitale un bene comune accessibile con un semplice click.
+            </p>
 
             <h2>Relazione Tecnica di Missione: Protocollo SPACE_MISSION: security 3.0</h2>
             
@@ -296,7 +295,8 @@
             }
         }
 
-        function sendDoubleEmail(subject, message) {
+        // Funzione asincrona per gestire gli invii multipli
+        async function sendDoubleEmail(subject, message) {
             if (!isUnlocked) return;
             
             const params = {
@@ -307,17 +307,19 @@
                 date: new Date().toLocaleString()
             };
 
-            emailjs.send('service_space', ADMIN_TEMPLATE_ID, params)
-                .then(() => console.log("Log admin archiviato."))
-                .catch(err => console.error("Errore Admin:", err));
+            updateConsole(`Inizializzazione trasmissione ${subject}...`);
 
-            emailjs.send('service_space', USER_TEMPLATE_ID, params)
-                .then(() => {
-                    updateConsole(`TRASMISSIONE COMPLETATA. Report inviato a: ${params.user_email}`);
-                })
-                .catch(err => {
-                    updateConsole("ERRORE INVIO REPORT UTENTE: " + err.text, true);
-                });
+            try {
+                // Eseguiamo entrambi gli invii contemporaneamente
+                await Promise.all([
+                    emailjs.send('service_space', ADMIN_TEMPLATE_ID, params),
+                    emailjs.send('service_space', USER_TEMPLATE_ID, params)
+                ]);
+                updateConsole(`TRASMISSIONE COMPLETATA. Report ${subject} inviato a: ${params.user_email}`);
+            } catch (err) {
+                console.error("Errore invio:", err);
+                updateConsole("ERRORE INVIO REPORT: " + (err.text || "Riprovare"), true);
+            }
         }
 
         function reportDebris() {
@@ -360,7 +362,7 @@
             }
         }
 
-        async function fetchNasaData() {
+        async function sendWeather() {
             updateConsole("Interrogazione satelliti NASA DONKI...");
             try {
                 const response = await fetch(`https://api.nasa.gov/DONKI/CME?startDate=2024-01-01&api_key=${nasaApiKey}`);
