@@ -15,6 +15,8 @@
             --blu-accento: #00a8ff;
             --text-muted: #555;
             --white: #ffffff;
+            /* Definizione variabile per il pulsante */
+            --accent-color: rgb(123, 0, 0);
         }
 
         * { 
@@ -135,6 +137,8 @@
             display: flex;
             justify-content: left;
             margin: 30px 0;
+            align-items: center;
+            gap: 20px;
         }
 
         .img-container img {
@@ -144,6 +148,16 @@
             border-radius: 10px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
             border: 1px solid #ddd;
+        }
+
+        .side-caption {
+            flex: 1; 
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            border-left: 3px solid #ddd;
+            padding-left: 15px;
+            max-width: 300px; 
         }
 
         /* --- STILE VIDEO --- */
@@ -180,6 +194,27 @@
             margin-bottom: 15px;
             display: block;
             font-family: 'Orbitron', sans-serif;
+        }
+
+        /* --- STILE PULSANTE --- */
+        .btn-back {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: opacity 0.3s, transform 0.2s;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .btn-back:hover {
+            opacity: 0.8;
+            transform: translateY(-2px);
         }
 
         /* --- FOOTER --- */
@@ -227,33 +262,17 @@
             box-shadow: 0 0 10px #00ff41;
         }
 
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             nav { width: 100%; height: auto; position: relative; }
             main, footer { margin-left: 0; width: 100%; }
-        }
-		.side-caption {
-            flex: 1; /* Prende lo spazio rimanente */
-            font-style: italic;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            border-left: 3px solid #ddd;
-            padding-left: 15px;
-            max-width: 300px; /* Impedisce al testo di allungarsi troppo */
-        }
-		.btn-back {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: var(--accent-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: opacity 0.3s;
-        }
-
-        .btn-back:hover {
-            opacity: 0.8;
         }
     </style>
 </head>
@@ -286,7 +305,7 @@
             
             <div class="img-container">
                 <img src="immagini/radar.png" alt="Radar NASA" onerror="this.src='https://via.placeholder.com/600x400?text=Antenna+Radar+Deep+Space'">
-				<div class="side-caption">
+                <div class="side-caption">
                     Immagine solo a scopo illustrativo, non rappresenta un vero radar NASA
                 </div>
             </div>
@@ -339,8 +358,13 @@
                 <div>[READY]  Sincronizzazione uplink completata.</div>
             </div>
         </section>
+
+        <!-- Pulsante inserito correttamente a fine main -->
+        <div style="margin-bottom: 40px;">
+            <a href="#" class="btn-back" onclick="window.history.back(); return false;">Ritorna al Centro Operativo</a>
+        </div>
     </main>
-        <a href="#" class="btn-back" onclick="window.history.back(); return false;">Ritorna al Centro Operativo</a>
+
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
