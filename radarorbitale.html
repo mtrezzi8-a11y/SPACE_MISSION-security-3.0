@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA RADAR SYSTEM - Security 3.0</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap');
+
+        :root {
+            --bg-crema: #f4f1ea;
+            --rosso-scuro: rgb(123, 0, 0);
+            --rosso-glow: #ff3131;
+            --blu-deep: #001233;
+            --blu-accento: #00a8ff;
+            --text-muted: #555;
+            --white: #ffffff;
+        }
+
+        * { 
+            box-sizing: border-box; 
+            transition: all 0.3s ease; 
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--bg-crema);
+            color: var(--blu-deep);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Navigazione Laterale */
+        nav {
+            width: 200px;
+            background: var(--rosso-scuro);
+            color: white;
+            padding: 25px 15px;
+            position: fixed;
+            height: 100vh;
+            box-shadow: 4px 0 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+
+        nav h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            color: var(--white);
+        }
+
+        nav ul { list-style: none; padding: 0; }
+        nav ul li { margin: 18px 0; }
+        nav ul li a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            display: block;
+            padding: 10px;
+            font-size: 0.85rem;
+            border-radius: 4px;
+        }
+
+        nav ul li a:hover {
+            color: white;
+            background: rgba(255,255,255,0.1);
+            border-left: 4px solid white;
+        }
+
+        /* Area Principale */
+        main {
+            margin-left: 200px;
+            padding: 60px 5%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            width: calc(100% - 200px);
+        }
+
+        h1 { 
+            font-family: 'Orbitron', sans-serif; 
+            color: var(--rosso-scuro); 
+            font-size: 2.5rem; 
+            margin-bottom: 10px; 
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        h2 { 
+            font-family: 'Orbitron', sans-serif; 
+            color: var(--blu-deep); 
+            border-bottom: 2px solid var(--rosso-scuro); 
+            display: inline-block; 
+            margin-top: 40px;
+            margin-bottom: 25px;
+        }
+
+        h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            color: var(--rosso-scuro);
+            margin-top: 20px;
+        }
+
+        section {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+        }
+
+        .description-block {
+            line-height: 1.8;
+            font-size: 1.05rem;
+            color: var(--blu-deep);
+            text-align: justify;
+            margin-bottom: 25px;
+        }
+
+        /* --- CORREZIONE IMMAGINE --- */
+        .img-container {
+            width: 100%;
+            display: flex;
+            justify-content: left;
+            margin: 30px 0;
+        }
+
+        .img-container img {
+            max-width: 200px;
+            width: 80%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border: 1px solid #ddd;
+        }
+
+        /* --- STILE VIDEO --- */
+        .video-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        video { width: 100%; display: block; }
+
+        /* --- CONSOLE TELEMETRIA --- */
+        #console-output {
+            background: #0d0d0d;
+            color: #00ff41;
+            padding: 25px;
+            font-family: 'Courier New', monospace;
+            border-radius: 10px;
+            border: 1px solid #333;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            margin-top: 20px;
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+
+        .telemetry-header {
+            color: #00ff41;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            width: 100%;
+            padding: 40px 20px;
+            margin-top: auto;
+            background-color: #f0ede6; 
+            background-image: linear-gradient(rgba(0,0,0,0.05), rgba(0,0,0,0.05));
+            border-top: 2px solid #8b0000;
+            color: #333;
+            box-sizing: border-box;
+        }
+
+        @media (min-width: 769px) {
+            footer {
+                margin-left: 200px;
+                width: calc(100% - 200px);
+            }
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-col h4 {
+            color: #8b0000;
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-size: 1rem;
+        }
+
+        .status-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #00ff41;
+            border-radius: 50%;
+            margin-right: 8px;
+            box-shadow: 0 0 10px #00ff41;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav { width: 100%; height: auto; position: relative; }
+            main, footer { margin-left: 0; width: 100%; }
+        }
+		.side-caption {
+            flex: 1; /* Prende lo spazio rimanente */
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            border-left: 3px solid #ddd;
+            padding-left: 15px;
+            max-width: 300px; /* Impedisce al testo di allungarsi troppo */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h2>NASA DATA HUB</h2>
+        <ul>
+            <li><a href="#radar">Radar System</a></li>
+            <li><a href="#donki">Meteo Spaziale</a></li>
+            <li><a href="#telemetry">Telemetria</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>SPACE_MISSION: Security 3.0</h1>
+        <p class="subtitle">Monitoraggio avanzato delle infrastrutture orbitali e meteorologia extra-atmosferica.</p>
+
+        <!-- SEZIONE RADAR -->
+        <section id="radar">
+            <h2>Sistema Radar Deep Space (DSN)</h2>
+            <div class="description-block">
+                <p>
+                    L'infrastruttura di monitoraggio qui rappresentata costituisce il cuore pulsante del <strong>Deep Space Network (DSN)</strong>. Queste antenne paraboliche ad alto guadagno sono progettate per operare in bande di frequenza X e Ka, garantendo una precisione millimetrica nella localizzazione di corpi celesti e detriti orbitali. 
+                </p>
+                <p>
+                    Il sistema radar non si limita alla semplice ricezione passiva; esso invia impulsi elettromagnetici focalizzati che rimbalzano sugli oggetti target per calcolarne la velocità vettoriale e la traiettoria di impatto potenziale. Ogni stazione radar è dotata di un sistema di raffreddamento criogenico per i ricevitori, minimizzando il rumore termico e permettendo di captare segnali con potenze inferiori a quelle di un orologio digitale terrestre provenienti da miliardi di chilometri di distanza.
+                </p>
+            </div>
+            
+            <div class="img-container">
+                <img src="immagini/radar.png" alt="Radar NASA" onerror="this.src='https://via.placeholder.com/600x400?text=Antenna+Radar+Deep+Space'">
+				<div class="side-caption">
+                    Immagine solo a scopo illustrativo, non rappresenta un vero radar NASA
+                </div>
+            </div>
+        </section>
+
+        <!-- SEZIONE VIDEO DONKI -->
+        <section id="donki">
+            <h2>Analisi Video: Eventi CME e Vento Solare</h2>
+            <div class="description-block">
+                <p>
+                    Il monitoraggio visuale in tempo reale è gestito tramite il database <strong>DONKI (Space Weather Database Of Notifications, Knowledge, and Information)</strong>. In questa sezione vengono visualizzate le riproporzioni digitali delle <em>Espulsioni di Massa Coronale (CME)</em> catturate dalle sonde SOHO e STEREO.
+                </p>
+                <p>
+                    Le immagini video permettono agli analisti di determinare la "direzionalità" delle tempeste solari. Un'espulsione diretta verso la Terra può causare tempeste geomagnetiche capaci di interrompere le comunicazioni satellitari e le reti elettriche terrestri. Il video visualizza i flussi di plasma ionizzato che viaggiano attraverso il vuoto interplanetario, permettendo una stima visiva della densità protonica e della turbolenza del fronte d'urto.
+                </p>
+            </div>
+            
+            <div class="video-container">
+                <video controls>
+                    <source src="immagini/eruzione.mp4" type="video/mp4">
+                    Il tuo browser non supporta il video.
+                </video>
+            </div>
+        </section>
+
+        <!-- SEZIONE TELEMETRIA -->
+        <section id="telemetry">
+            <h2>Protocolli di Telemetria e Sicurezza</h2>
+            <div class="description-block">
+                <p>
+                    L'output sottostante rappresenta la sintesi computazionale di migliaia di sensori distribuiti. Il protocollo <strong>Security 3.0</strong> integra algoritmi di intelligenza artificiale per filtrare i dati grezzi provenienti dai magnetometri orbitali. 
+                </p>
+                <p>
+                    Ogni riga della console è il risultato di una validazione incrociata tra le stazioni terrestri e i satelliti meteorologici. In caso di superamento delle soglie critiche di radiazione, il sistema attiva automaticamente le procedure di "Safe Mode" per la strumentazione sensibile della Stazione Spaziale Internazionale (ISS), garantendo l'integrità dei sistemi di supporto vitale per l'equipaggio.
+                </p>
+            </div>
+
+            <span class="telemetry-header">LOG DI SISTEMA - LIVE STREAM</span>
+            <div id="console-output">
+                <div>[SYSTEM] BOLLETTINO METEOROLOGICO SPAZIALE NASA DONKI (MODULO 04):</div>
+                <div>[INFO]   -----------------------------------------------------------</div>
+                <div>[DATA]   Analisi del clima extra-planetario per la sicurezza delle missioni abitate:</div>
+                <div style="margin-top:10px;">- DESTINAZIONE MISSIONE: ISS (International Space Station).</div>
+                <div>- EVENTO CME RILEVATO: 2026-03-06T04:09Z (Classe X-Ray Flare).</div>
+                <div>- VELOCITÀ VENTO SOLARE: 380 km/s (Stabile).</div>
+                <div>- FLUSSO PROTONICO: 1.2 MeV (In aumento).</div>
+                <div>- ANALISI RISCHIO: <span style="color: #FFFF00; font-weight: bold;">Medio (Yellow Alert)</span>.</div>
+                <div>- RACCOMANDAZIONI: Finestra EVA valutata come <span style="color: #00ff41; font-weight: bold;">favorevole</span>. Monitoraggio costante richiesto.</div>
+                <div>[INFO]   -----------------------------------------------------------</div>
+                <div>[READY]  Sincronizzazione uplink completata.</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Status Operativo</h4>
+                <p><span class="status-dot"></span> Radar DSN Online</p>
+                <p><span class="status-dot"></span> Database DONKI Sincronizzato</p>
+                <p><span class="status-dot"></span> Protocollo Security 3.0 Attivo</p>
+            </div>
+            <div class="footer-col">
+                <h4>Risorse Esterne</h4>
+                <p><a href="#">NASA API Portal</a></p>
+                <p><a href="#">JPL Deep Space Network</a></p>
+                <p><a href="#">Space Weather Prediction Center</a></p>
+            </div>
+            <div class="footer-col">
+                <h4>Dipartimento Sicurezza</h4>
+                <p>Divisione Monitoraggio Detriti</p>
+                <p>security-dept@nasa.gov</p>
+                <p>Houston, TX - Mission Control</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Space Surveillance Network - NASA Institutional Use Only
+        </div>
+    </footer>
+
+</body>
+</html>
