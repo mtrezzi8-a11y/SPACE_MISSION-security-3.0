@@ -327,9 +327,9 @@
                 const analisi = `REPORT TECNICO RILEVAMENTO DETRITI (MODULO 01):
 --------------------------------------------------
 L'operatore ha rilevato un oggetto orbitale non identificato con le seguenti specifiche:
-- CLASSE DEL FRAMMENTO: ${size}. Questa categoria definisce il potenziale distruttivo in caso di collisione.
-- COORDINATE GPS DI RIFERIMENTO: ${gps}. Punto di osservazione terrestre per il calcolo della parabola orbitale.
-- INCLINAZIONE CALCOLATA: ${inclinazione} gradi. Parametro fondamentale per determinare il piano di rotazione dell'oggetto.
+- CLASSE DEL FRAMMENTO: ${size}. (Potenziale distruttivo in caso di collisione.)
+- COORDINATE GPS DI RIFERIMENTO: ${gps}. 
+- INCLINAZIONE CALCOLATA: ${inclinazione} gradi. 
 - STATUS OPERATIVO: Tracciamento attivo mediante radar di terra e link satellitare.
 - VALUTAZIONE RISCHIO: Elevata vigilanza richiesta per prevenire collisioni con asset civili in transito.
 --------------------------------------------------`;
@@ -352,9 +352,9 @@ L'operatore ha rilevato un oggetto orbitale non identificato con le seguenti spe
                 const analisi = `REPORT LOGISTICO ORBITSHARE (MODULO 02):
 --------------------------------------------------
 È stata presentata una richiesta per l'immissione in orbita di un carico utile (Payload) con i seguenti dettagli:
-- MASSA DICHIARATA: ${m} kg. Il peso influisce direttamente sul consumo di propellente del vettore.
-- DESTINAZIONE ORBITALE: ${orbit}. La quota di inserimento determina la complessità del lancio e la durata del satellite.
-- PREVENTIVO ECONOMICO STIMATO: $${costoTot}. Calcolato in base alle tariffe correnti di mercato per la Space Economy.
+- MASSA DICHIARATA: ${m} kg. 
+- DESTINAZIONE ORBITALE: ${orbit}. 
+- PREVENTIVO ECONOMICO STIMATO: $${costoTot}.
 - STATUS FATTIBILITÀ: ${possConsole}.
 - FINESTRA DI LANCIO PREVISTA: Slot disponibile nel quarto trimestre (Q4).
 - NOTE TECNICHE: Il sistema OrbitShare sta cercando vettori compatibili per massimizzare l'efficienza del carico (Ride-sharing).
@@ -373,10 +373,10 @@ L'operatore ha rilevato un oggetto orbitale non identificato con le seguenti spe
                 const dossier = `DOSSIER LEGALE SPAZIALE (MODULO 03):
 --------------------------------------------------
 Istanza formale presentata in conformità all'Outer Space Treaty e agli Artemis Accords:
-- AMBITO GIURIDICO: ${scope}. Settore specifico di applicazione del diritto internazionale.
+- AMBITO GIURIDICO: ${scope}. 
 - DESCRIZIONE DETTAGLIATA DEI FATTI: "${text}".
 - RIFERIMENTI NORMATIVI: Analisi basata sull'Articolo VII sulla responsabilità per danni e sui trattati di occupazione pacifica.
-- DESTINAZIONE ISTANZA: Ufficio Legale Spaziale per la protocollazione ufficiale.
+- DESTINAZIONE ISTANZA: Ufficio Legale Spaziale per la protocollazione ufficiale. (se consentita dal titolare)
 - AZIONE RICHIESTA: Verifica di conformità e arbitrato preventivo per la risoluzione del contenzioso.
 --------------------------------------------------`;
                 updateConsole("Protocollazione dossier legale...");
@@ -437,10 +437,10 @@ Istanza formale presentata in conformità all'Outer Space Treaty e agli Artemis 
                 const bollettino = `BOLLETTINO METEOROLOGICO SPAZIALE NASA DONKI (MODULO 04):
 --------------------------------------------------
 Analisi del clima extra-planetario per la sicurezza delle missioni abitate:
-- DESTINAZIONE MISSIONE: ${d}. Località target per l'analisi delle radiazioni.
-- EVENTO CME (Coronal Mass Ejection) RILEVATO: ${date}. Data e ora di inizio dell'ultima espulsione di massa.
-- VELOCITÀ DEL VENTO SOLARE: ${speedText}. Parametro critico per la stabilità magnetica dei sistemi elettronici.
-- ANALISI RISCHIO: ${rischioSpan}. Livello calcolato in base alla magnitudo e velocità delle particelle ionizzanti.
+- DESTINAZIONE MISSIONE: ${d}. 
+- EVENTO CME (Coronal Mass Ejection) RILEVATO: ${date}. 
+- VELOCITÀ DEL VENTO SOLARE: ${speedText}. 
+- ANALISI RISCHIO: ${rischioSpan}. 
 - RACCOMANDAZIONI: Finestra di sicurezza meteorologica valutata come ${raccomandazioneSpan} per operazioni extra-veicolari (EVA).
 --------------------------------------------------`;
                 
@@ -466,10 +466,10 @@ Analisi del clima extra-planetario per la sicurezza delle missioni abitate:
                 const analisi = `SIMULAZIONE DIFESA PLANETARIA DART (MODULO 05):
 --------------------------------------------------
 Analisi di impatto cinetico per la deviazione di minacce Near-Earth:
-- MASSA DELL'IMPATTATORE (DART): ${m_dart} kg. Peso della sonda programmata per lo scontro.
-- DIAMETRO DEL BERSAGLIO (NEA): ${d_asteroid} metri. Dimensione stimata dell'asteroide rilevato.
-- COMPOSIZIONE MATERICA: ${comp}. Densità fondamentale per il calcolo del trasferimento di momento.
-- ENERGIA CINETICA SPRIGIONATA: ${energia.toFixed(2)} Terajoule. Calcolo basato su una velocità di collisione di 6.6 km/s.
+- MASSA DELL'IMPATTATORE (DART): ${m_dart} kg. 
+- DIAMETRO DEL BERSAGLIO (NEA): ${d_asteroid} metri. 
+- COMPOSIZIONE MATERICA: ${comp}. 
+- ENERGIA CINETICA SPRIGIONATA: ${energia.toFixed(2)} Terajoule. Basato su una velocità di collisione di 6.6 km/s.
 - ESITO SIMULAZIONE: ${esitoSuccessoConsole}. Il vettore orbitale dell'asteroide è stato modificato con successo.
 --------------------------------------------------`;
                 updateConsole("Simulazione cinetica in corso...");
