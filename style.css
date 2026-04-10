@@ -1,331 +1,152 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap');
-
-:root {
-    --bg-crema: #f4f1ea;
-    --rosso-scuro: rgb(123, 0, 0);
-    --rosso-glow: #ff3131;
-    --blu-deep: #001233;
-    --blu-accento: #00a8ff;
-    --text-muted: #555;
-    --white: #ffffff;
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    scroll-behavior: smooth;
 }
 
-* { 
-    box-sizing: border-box; 
-    transition: all 0.3s ease; 
+body { background-color: #000; color: #fff; overflow-x: hidden; }
+
+/* Status Bar */
+#status-container {
+    position: fixed; bottom: 110px; left: 0; width: 100%; /* Alzata per non coprire il footer */
+    display: flex; justify-content: center; z-index: 3000;
 }
 
-body {
-    font-family: 'Rajdhani', sans-serif;
-    background-color: var(--bg-crema);
-    color: var(--blu-deep);
-    margin: 0;
-    display: flex;
-    min-height: 100vh;
+#status-bar {
+    min-width: 400px; max-width: 80%; height: 40px;
+    background: #000; border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 50px; display: flex; align-items: center; justify-content: center;
+    padding: 0 30px; font-size: 0.75rem; font-family: 'Consolas', monospace;
+    letter-spacing: 2px; color: #00ffcc;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 15px rgba(0, 212, 255, 0.1);
 }
 
-/* Navigazione Laterale */
-nav {
-    width: 200px;
-    background: var(--rosso-scuro);
-    color: white;
-    padding: 25px 15px;
-    position: fixed;
-    height: 100vh;
-    box-shadow: 4px 0 10px rgba(0,0,0,0.3);
+/* Background */
+.video-container { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: -1; }
+#bg-video { width: 100%; height: 100%; object-fit: cover; }
+.overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.85) 100%); }
+
+/* Logo */
+.logo-container-main { text-align: center; margin-bottom: 40px; margin-top: 50px; }
+.main-logo-img { width: 140px; border-radius: 25px; box-shadow: 0 0 25px rgba(0, 212, 255, 0.4); }
+.logo-text { font-size: 3rem; font-weight: 800; text-transform: uppercase; }
+.logo-text span { color: #00d4ff; text-shadow: 0 0 20px rgba(0, 212, 255, 0.6); }
+
+/* Side Nav */
+.side-nav {
+    height: 100%; width: 0; position: fixed; z-index: 2000; top: 0; left: 0;
+    background: rgba(5, 10, 20, 0.95); backdrop-filter: blur(20px);
+    transition: 0.5s; padding-top: 60px; overflow-x: hidden;
+}
+.side-nav a {
+    padding: 15px 35px; text-decoration: none; color: #fff; display: block;
+    text-transform: uppercase; white-space: nowrap; transition: 0.3s;
+}
+.side-nav .closebtn { position: absolute; top: 20px; right: 30px; font-size: 40px; }
+#menu-trigger {
+    position: fixed; top: 25px; left: 25px; cursor: pointer;
+    background: rgba(0, 212, 255, 0.2); backdrop-filter: blur(10px);
+    padding: 10px 18px; border: 1px solid rgba(0, 212, 255, 0.5);
+    border-radius: 50px; display: none; z-index: 1500; font-size: 0.8rem;
+}
+
+/* Glass Cards */
+.glass-card {
+    background: rgba(255, 255, 255, 0.07); backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 30px;
+    padding: 40px; margin-bottom: 30px;
+}
+h2 { color: #00d4ff; margin-bottom: 20px; font-size: 1.6rem; text-transform: uppercase; }
+
+/* Buttons & Inputs */
+.input-field {
+    width: 100%; padding: 15px; margin-top: 10px; background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 12px; color: #fff;
+}
+button {
+    padding: 15px 30px; background: #00d4ff; border: none; color: #000;
+    font-weight: bold; cursor: pointer; text-transform: uppercase; border-radius: 12px;
+}
+.btn-secondary { background: transparent; border: 2px solid #00d4ff; color: #00d4ff; }
+.back-home-btn { display: block; margin: 40px auto; border: 1px solid #ff4b2b; color: #ff4b2b; background: none; }
+
+/* Layout */
+.content-page { padding: 100px 20px 150px 20px; display: flex; flex-direction: column; align-items: center; }
+.container { max-width: 850px; width: 100%; }
+.hidden { display: none !important; }
+#home-screen { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+.home-grid { display: flex; gap: 20px; width: 90%; max-width: 1000px; }
+
+/* FOOTER STYLE */
+.main-footer {
+    background: rgba(0, 0, 0, 0.9);
+    border-top: 1px solid rgba(0, 212, 255, 0.3);
+    padding: 30px 20px;
+    position: relative;
     z-index: 1000;
 }
-
-nav h2 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.9rem;
-    text-align: center;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-    padding-bottom: 15px;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-}
-
-nav ul { list-style: none; padding: 0; }
-nav ul li { margin: 18px 0; }
-nav ul li a {
-    color: rgba(255,255,255,0.8);
-    text-decoration: none;
-    font-weight: bold;
-    cursor: pointer;
-    display: block;
-    padding: 10px;
-    font-size: 0.85rem;
-    border-radius: 4px;
-}
-
-nav ul li a:hover {
-    color: white;
-    background: rgba(255,255,255,0.1);
-    border-left: 4px solid white;
-}
-
-/* Area Principale */
-main {
-    margin-left: 200px;
-    padding: 60px 5%;
-    width: calc(100% - 200px);
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
 }
-
-h1 { 
-    font-family: 'Orbitron', sans-serif; 
-    color: var(--rosso-scuro); 
-    font-size: 2.8rem; 
-    margin-bottom: 10px; 
-}
-
-p.subtitle {
-    font-size: 1.2rem;
-    color: var(--text-muted);
-    margin-bottom: 40px;
-}
-
-h2 { 
-    font-family: 'Orbitron', sans-serif; 
-    color: var(--blu-deep); 
-    border-bottom: 2px solid var(--rosso-scuro); 
-    display: inline-block; 
-    margin-top: 50px;
-    margin-bottom: 25px;
-}
-
-h3 { color: var(--rosso-scuro); margin-top: 25px; font-family: 'Orbitron', sans-serif; font-size: 1.1rem; }
-
-section {
-    background: var(--white);
-    padding: 40px;
-    border-radius: 15px;
-    margin-bottom: 40px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-}
-
-.form-group { margin-bottom: 20px; }
-label { display: block; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; font-size: 0.75rem; color: var(--text-muted); }
-
-input, select, textarea {
-    width: 100%;
-    padding: 14px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 1rem;
-    background: #fafafa;
-}
-
-input:focus, select:focus, textarea:focus {
-    outline: none;
-    border-color: var(--rosso-scuro);
-    background: white;
-}
-
-button {
-    background: var(--blu-deep);
-    color: white;
-    padding: 16px 30px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-family: 'Orbitron', sans-serif;
+.footer-col { flex: 1; }
+.footer-col h3 {
     font-size: 0.8rem;
+    color: #00d4ff;
+    margin-bottom: 15px;
     letter-spacing: 1px;
-    width: 100%;
-    text-transform: uppercase;
+}
+.footer-col p {
+    font-size: 0.8rem;
+    color: #aaa;
+    margin-bottom: 8px;
+    font-family: 'Consolas', monospace;
+}
+.highlight { color: #fff; }
+.status-green { color: #00ffcc; font-weight: bold; }
+.status-red { color: #ff4b2b; font-weight: bold; }
+
+@media (max-width: 850px) {
+    .home-grid { flex-direction: column; }
+    .footer-container { flex-direction: column; text-align: center; }
 }
 
-button:hover { 
-    background: var(--rosso-scuro); 
-    transform: scale(1.01); 
-    box-shadow: 0 5px 15px rgba(123, 0, 0, 0.3);
-}
-
-#console-output {
-    background: #0d0d0d;
-    color: #00ff41;
-    padding: 25px;
-    font-family: 'Courier New', monospace;
-    border-radius: 10px;
-    border: 1px solid #333;
-    position: sticky;
-    bottom: 20px;
-    box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
-    margin-top: 20px;
-    z-index: 10;
-}
-
-.doc-block p { line-height: 1.8; font-size: 1.1rem; text-align: justify; }
-
-/* --- FOOTER VISUAL STYLE --- */
-footer {
-    background: var(--blu-deep);
-    color: white;
-    margin-left: 200px;
-    padding: 60px 5% 30px;
-    width: calc(100% - 200px);
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 40px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding-bottom: 40px;
-}
-
-.footer-col h4 {
-    font-family: 'Orbitron', sans-serif;
-    color: var(--rosso-glow);
-    font-size: 0.9rem;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
-
-.footer-col p, .footer-col a {
-    color: rgba(26, 0, 196);
-    font-size: 0.9rem;
-    text-decoration: none;
+/* Stile per le immagini all'interno della glass-card */
+.glass-card img {
+    max-width: 300px; /* Regola la larghezza come preferisci */
+    border-radius: 12px; /* Opzionale: per bordi arrotondati stile glassmorphism */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     margin-bottom: 10px;
-    display: block;
 }
 
-.footer-col a:hover {
-    color: white;
+/* Immagine a destra */
+.img-right {
+    float: right;
+    margin-left: 20px;
 }
 
-.footer-social {
-    display: flex;
-    gap: 15px;
+/* Immagine a sinistra */
+.img-left {
+    float: left;
+    margin-right: 20px;
 }
 
-.footer-social a {
-    font-size: 1.2rem;
-    color: white;
-    opacity: 0.6;
+/* Fix per evitare che il testo successivo "salti" sopra le immagini (clearfix) */
+.section-content::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
-.footer-social a:hover {
-    opacity: 1;
-    color: var(--rosso-glow);
+/* Responsive: su schermi piccoli le immagini si centrano e il testo va sotto */
+@media (max-width: 600px) {
+    .img-right, .img-left {
+        float: none;
+        display: block;
+        margin: 0 auto 15px auto;
+        max-width: 100%;
+    }
 }
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 30px;
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.4);
-}
-
-.status-dot {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    background: #00ff41;
-    border-radius: 50%;
-    margin-right: 8px;
-    box-shadow: 0 0 10px #00ff41;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    body { flex-direction: column; }
-    nav { width: 100%; height: auto; position: relative; }
-    main, footer { margin-left: 0; width: 100%; }
-}
-        /* Forza il body a gestire correttamente il footer in fondo */
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            margin: 0;
-        }
-
-        /* Il contenuto principale deve espandersi per spingere il footer giù */
-        main {
-            flex: 1;
-        }
-
-        /* Regola richiesta: i pulsanti vanno a capo */
-        button {
-            display: block;
-            margin-top: 15px;
-            width: 100%;
-        }
-
-        /* Correzione Footer: lo forziamo a stare sotto tutto */
-        footer {
-            width: 100%;
-            padding: 40px 20px;
-            margin-top: auto; /* Fondamentale per spingerlo in fondo */
-            background-color: #f0ede6; /* Colore base del foglio */
-            background-image: linear-gradient(rgba(0,0,0,0.05), rgba(0,0,0,0.05)); /* Leggermente più scuro */
-            border-top: 2px solid #8b0000;
-            color: #333;
-            box-sizing: border-box;
-            z-index: 100;
-            position: relative;
-        }
-
-        /* Se la barra laterale è fissa o float, questa regola assicura che il footer parta da sinistra */
-        @media (min-width: 769px) {
-            footer {
-            margin-left: 10%; /* Sposta il footer fuori dall'area del menu */
-            width: 90%; /* Occupa solo lo spazio rimanente */
-            padding: 40px 20px;
-            margin-top: auto;
-            background-color: rgba(0, 0, 0, 0.05);
-            border-top: 2px solid var(--accent-color);
-            color: #333;
-            box-sizing: border-box;
-            position: relative;
-        }
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-col h4 {
-            color: #8b0000;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 1.1rem;
-        }
-
-        .footer-col p {
-            font-size: 0.9rem;
-            line-height: 1.6;
-            margin: 5px 0;
-            color: #555;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(139, 0, 0, 0.2);
-            font-size: 0.8rem;
-            opacity: 0.7;
-        }
-
-        #console-output {
-            margin-bottom: 20px;
-        }
-		
-		#c{
-			color: #030a66 !important;
-			text-decoration: underline !important;
-		}
-		#c:hover{
-			color: #00aaff
-		}
